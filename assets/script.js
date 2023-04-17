@@ -54,6 +54,7 @@ $("#search-btn").on("click", function () {
     var query = $("#search-input").val().trim();
     localStorage.setItem('recipe', query);
     recipes.push(query);
+    window.
     displayRecipe();
 });
 
