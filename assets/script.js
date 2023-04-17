@@ -1,12 +1,12 @@
 // "$.ajax({" ======= JQuery preforming the http AJAX request
-// method: "GET" ======= http used for the request 
-// url: "https://api.api-ninjas.com/v1/recipe?query=" + query,) ======= API endpoint for the URL for users query 
-// headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" } =======object containing the SET OF HEADERS to send the request 
+// method: "GET" ======= http used for the request
+// url: "https://api.api-ninjas.com/v1/recipe?query=" + query,) ======= API endpoint for the URL for users query
+// headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" } =======object containing the SET OF HEADERS to send the request
 // contentType: "application/json", ======= is the data that is sent to the server
 // success: function (result) ======= calling back for the successful response
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
-var query = "italian wedding soup"; 
+var query = "italian wedding soup";
 $.ajax({
   method: "GET",
   url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
@@ -32,8 +32,8 @@ $.ajax({
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
 
 function displayRecipes(recipes) {
-  var resultsDiv = $("#results"); 
-  resultsDiv.empty(); 
+  var resultsDiv = $("#results");
+  resultsDiv.empty();
 
   recipes.forEach(function (recipe) {
     var recipeDiv = $("<div>").addClass(box);
@@ -50,7 +50,6 @@ $("#search-btn").on("click", function () {
   var query = $("#search-input").val().trim();
   fetchRecipes(query);
 });
-
 
 // () =======
 // logs ingredients in variable foodIngredients
