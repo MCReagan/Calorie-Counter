@@ -1,3 +1,5 @@
+var recipes = [];
+
 // "$.ajax({" ======= JQuery preforming the http AJAX request
 // method: "GET" ======= http used for the request 
 // url: "https://api.api-ninjas.com/v1/recipe?query=" + query,) ======= API endpoint for the URL for users query 
@@ -33,10 +35,11 @@ $.ajax({
 // recipeDiv.append(recipeTitle); ======= appends the title for the recipeDiv
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
 
-function displayRecipes(recipes) {
+function displayRecipe() {
+  var recipe = localStorage.getItem('recipe');  
   var resultsDiv = $("#results"); 
   resultsDiv.empty(); 
-    recipes.forEach(function (recipe) {
+    recipe.forEach(function (recipe) {
         var recipeDiv = $("<div>").addClass(box);
         var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
         recipeDiv.append(recipeTitle);
@@ -50,6 +53,9 @@ function displayRecipes(recipes) {
 $("#search-btn").on("click", function () {
     var query = $("#search-input").val().trim();
     localStorage.setItem('recipe', query);
+    recipes.push(query);
+    window.
+    displayRecipe();
 });
 
 
