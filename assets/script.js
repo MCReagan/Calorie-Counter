@@ -55,6 +55,7 @@ $("#search-btn").on("click", function () {
     if (query) {
       localStorage.setItem('recipe', query);
       recipes.push(query);
+      displayRecipe();
       window.location.href = ("results.html");
     } else {
       alert("Please enter a recipe");
