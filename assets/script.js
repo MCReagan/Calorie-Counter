@@ -7,10 +7,9 @@
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
 
-var query = "italian wedding soup"; 
 
-function ingredientList(food){
-    var foodIngredients = []
+function ingredientList(query){
+  var foodIngredients = ''
     // returns a list of ingredients in a recipe
 $.ajax({
   method: "GET",
@@ -18,15 +17,17 @@ $.ajax({
   headers: { "X-Api-Key": "3TpEafSFnQPCwY3sTujznK9xeBtbG98f8IMZ7H44" },
   contentType: "application/json",
   success: function (result) {
-    var foodIngredients = result[1].ingredients;
-    console.log(foodIngredients);
+    console.log(result[1].ingredients);
   },
   error: function ajaxError(jqXHR) {
     console.error("Error: ", jqXHR.responseText);
   },
+  
 });
+  return foodIngredients
+}
 
-
+console.log(ingredientList('chicken noodle soup'))
 
 
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
