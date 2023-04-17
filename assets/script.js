@@ -1,3 +1,5 @@
+var recipes = [];
+
 // "$.ajax({" ======= JQuery preforming the http AJAX request
 // method: "GET" ======= http used for the request
 // url: "https://api.api-ninjas.com/v1/recipe?query=" + query,) ======= API endpoint for the URL for users query
@@ -7,8 +9,11 @@
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var query = "italian wedding soup";
 =======
+=======
+>>>>>>> 1ff2146300147d80d6a239191876fb57513bb247
 
 var query = "italian wedding soup"; 
 >>>>>>> 20e75163b044e57bedd109d031e968bab5cec6d2
@@ -37,6 +42,7 @@ $.ajax({
 // recipeDiv.append(recipeTitle); ======= appends the title for the recipeDiv
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
 
+<<<<<<< HEAD
 function displayRecipes(recipes) {
 <<<<<<< HEAD
   var resultsDiv = $("#results");
@@ -52,12 +58,22 @@ function displayRecipes(recipes) {
   var resultsDiv = $("#results"); 
   resultsDiv.empty(); 
     recipes.forEach(function (recipe) {
+=======
+function displayRecipe() {
+  var recipe = localStorage.getItem('recipe');  
+  var resultsDiv = $("#results"); 
+  resultsDiv.empty(); 
+    recipe.forEach(function (recipe) {
+>>>>>>> 1ff2146300147d80d6a239191876fb57513bb247
         var recipeDiv = $("<div>").addClass(box);
         var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
         recipeDiv.append(recipeTitle);
         resultsDiv.append(recipeDiv);
     });
+<<<<<<< HEAD
 >>>>>>> 20e75163b044e57bedd109d031e968bab5cec6d2
+=======
+>>>>>>> 1ff2146300147d80d6a239191876fb57513bb247
 }
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
@@ -66,6 +82,12 @@ function displayRecipes(recipes) {
 $("#search-btn").on("click", function () {
     var query = $("#search-input").val().trim();
     localStorage.setItem('recipe', query);
+<<<<<<< HEAD
+=======
+    recipes.push(query);
+    window.
+    displayRecipe();
+>>>>>>> 1ff2146300147d80d6a239191876fb57513bb247
 });
 
 // () =======
