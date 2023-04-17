@@ -14,4 +14,6 @@ $.ajax({
     }
 });
 
+
+
 // logs ingredients in variable foodIngredients

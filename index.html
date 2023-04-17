@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calorie Counter</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/normalize.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
+  <body>
+    <!-- Bulma section for grouping content -->
 
-<body>
-    
-</body>
-    <script src="./assets/script.js"></script>
+    <section class="section">
+      <!--Bulma container for centering content  -->
+      <div class="container">
+        <!-- Main title of the webpage -->
+        <h1 class="title">Calorie Counter</h1>
+        <!-- Search for the recipe content -->
+        <div class="field">
+          <label class="label">Search for a recipe:</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="serch-input"
+              placeholder="Enter a recipe name"
+            />
+          </div>
+        </div>
+        <!-- Search button for making the recipe search -->
+        <button class="button is is-primary" id="serarch-btn">Search</button>
+        <!-- Horizontal rule for separation for visual -->
+        <hr />
+
+        <h2 class="subtitle">Results</h2>
+        <!-- Container for the display search -->
+
+        <div id="results">
+          <!-- add recipe heree -->
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- The javaScript file -->
+  <script src="./assets/script.js"></script>
 </html>
