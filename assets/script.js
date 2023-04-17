@@ -6,7 +6,12 @@
 // success: function (result) ======= calling back for the successful response
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
+<<<<<<< HEAD
 var query = "italian wedding soup";
+=======
+
+var query = "italian wedding soup"; 
+>>>>>>> 20e75163b044e57bedd109d031e968bab5cec6d2
 $.ajax({
   method: "GET",
   url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
@@ -22,6 +27,7 @@ $.ajax({
   },
 });
 
+
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
 // var resultsDiv = $("#results"); ======= JQuery entity for the "results div"
 // resultsDiv.empty(); ======= clears the "results div"
@@ -32,6 +38,7 @@ $.ajax({
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
 
 function displayRecipes(recipes) {
+<<<<<<< HEAD
   var resultsDiv = $("#results");
   resultsDiv.empty();
 
@@ -41,14 +48,24 @@ function displayRecipes(recipes) {
     recipeDiv.append(recipeTitle);
     resultsDiv.append(recipeDiv);
   });
+=======
+  var resultsDiv = $("#results"); 
+  resultsDiv.empty(); 
+    recipes.forEach(function (recipe) {
+        var recipeDiv = $("<div>").addClass(box);
+        var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
+        recipeDiv.append(recipeTitle);
+        resultsDiv.append(recipeDiv);
+    });
+>>>>>>> 20e75163b044e57bedd109d031e968bab5cec6d2
 }
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
 $("#search-btn").on("click", function () {
-  var query = $("#search-input").val().trim();
-  fetchRecipes(query);
+    var query = $("#search-input").val().trim();
+    localStorage.setItem('recipe', query);
 });
 
 // () =======
