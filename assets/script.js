@@ -6,7 +6,11 @@ const options = {
 	}
 };
 
-fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=pasta', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+$("#search-btn").on("click", function () {
+    var query = $("#search-input").val().trim();
+    localStorage.setItem('recipe', query);
+});
+
+
+// () =======
+// logs ingredients in variable foodIngredients
