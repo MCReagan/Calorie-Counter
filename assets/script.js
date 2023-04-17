@@ -8,37 +8,37 @@
 // (function displayRecipes(recipes)) function to display the fetched recipes for UI
 
 
-var query = "italian wedding soup";
-$.ajax({
-  method: "GET",
-  url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
-  headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" },
-  contentType: "application/json",
-  success: function (result) {
-    var foodIngredients = result[1].ingredients;
-    console.log(foodIngredients);
-    console.log(result);
-  },
-  error: function ajaxError(jqXHR) {
-    console.error("Error: ", jqXHR.responseText);
-  },
-});
+// var query = "italian wedding soup";
+// $.ajax({
+//   method: "GET",
+//   url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
+//   headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" },
+//   contentType: "application/json",
+//   success: function (result) {
+//     var foodIngredients = result[1].ingredients;
+//     console.log(foodIngredients);
+//     console.log(result);
+//   },
+//   error: function ajaxError(jqXHR) {
+//     console.error("Error: ", jqXHR.responseText);
+//   },
+// });
 
 function displayRecipes(recipes) {
-  var resultsDiv = $("#results");
-  resultsDiv.empty();
+    var resultsDiv = $("#results");
+    resultsDiv.empty();
 
-  recipes.forEach(function (recipe) {
-    var recipeDiv = $("<div>").addClass(box);
-    var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
-    recipeDiv.append(recipeTitle);
-    resultsDiv.append(recipeDiv);
-  });
+    recipes.forEach(function (recipe) {
+        var recipeDiv = $("<div>").addClass(box);
+        var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
+        recipeDiv.append(recipeTitle);
+        resultsDiv.append(recipeDiv);
+    });
 }
 //  The event Listener for the search button. :)
 $("#search-btn").on("click", function () {
-  var query = $("#search-input").val().trim();
-  fetchRecipes(query);
+    var query = $("#search-input").val().trim();
+    localStorage.setItem('recipe', query);
 });
 
 // logs ingredients in variable foodIngredients
