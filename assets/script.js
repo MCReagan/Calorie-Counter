@@ -18,10 +18,12 @@
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
 
 function displayRecipe() {
+  
   var recipe = localStorage.getItem('recipe');  
   var resultsDiv = $("#results"); 
   resultsDiv.empty(); 
-    recipe.forEach(function (recipe) {
+    
+  recipe.forEach(function (recipe) {
 
         var recipeDiv = $("<div>").addClass(box);
         var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
