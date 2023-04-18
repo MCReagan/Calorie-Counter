@@ -1,4 +1,5 @@
 
+
 // "$.ajax({" ======= JQuery preforming the http AJAX request
 // method: "GET" ======= http used for the request
 // url: "https://api.api-ninjas.com/v1/recipe?query=" + query,) ======= API endpoint for the URL for users query
@@ -37,8 +38,22 @@ function displayRecipe() {
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
+$(document).ready(function () {
+var storedQuery = localStorage.getItem("lastSearchQuery");
+if (storedQuery) {
+  searchInput.val(storedQuery);
+
+}
+
+});
+var searchBtn = $("#search-btn");
+var searchInput = $("#search-input");
+var homeBtn = $("#home-button");
+var errorMessage = $("#error-message");
+
 
 $("#search-btn").on("click", function () {
+
   var query = $("#search-input").val().trim();
 
   if (query) {
@@ -49,7 +64,30 @@ $("#search-btn").on("click", function () {
   } else {
     alert("Please enter a recipe");
   }
+
 });
+
+
+searchInput.on("keydown", function (event) {
+if (event-key === "Enter") {
+var query = searchInput.val().trim();
+if (query) {
+  searchRecipes(query);
+} else {
+  displayError("this is a error message")
+}
+}
+
+});
+
+homeBtn.on("click", function() {
+  window.location.href = "index.html";
+
+});
+
+
+
+
 
 $("#home-button").on('click', function () {
 window.location.href = ("index.html");
