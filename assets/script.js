@@ -8,8 +8,6 @@ var recipes = [];
 // success: function (result) ======= calling back for the successful response
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
-
-
 var query = "italian wedding soup"; 
 
 $.ajax({
@@ -27,7 +25,6 @@ $.ajax({
   },
 });
 
-
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
 // var resultsDiv = $("#results"); ======= JQuery entity for the "results div"
 // resultsDiv.empty(); ======= clears the "results div"
@@ -36,22 +33,6 @@ $.ajax({
 // var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name); ======= makes the h3 element for the "is-size-4" class and make the text to the recipe name
 // recipeDiv.append(recipeTitle); ======= appends the title for the recipeDiv
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
-
-
-// function displayRecipe() {
-//   var recipe = localStorage.getItem('recipe');  
-//   var resultsDiv = $("#results"); 
-//   resultsDiv.empty(); 
-//     recipe.forEach(function (recipe) {
-//         var recipeDiv = $("<div>").addClass(box);
-//         var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
-//         recipeDiv.append(recipeTitle);
-//         resultsDiv.append(recipeDiv);
-//     });
-// }
-
-
-
 
 function displayRecipe() {
   var recipe = localStorage.getItem('recipe');  
