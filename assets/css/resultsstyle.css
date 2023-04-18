@@ -45,6 +45,8 @@ h2 {
     font-size: 40px;
 }
 
+:root { --gray: #CDCBD6; --sienna: #D96846; --moss: #596235; --olive: #2f3020;}
+
  /* Float columns side by side */
  .column {
     float: left;
@@ -69,6 +71,16 @@ h2 {
     text-align: center;
     background-color: #f1f1f1;
   }
+
+  tr:nth-child(even) {background-color: #CDCBD6;}
+
+  tr:hover {background-color: #D96846;}
+
+  th {
+    background-color: #d96846;
+    color: #CDCBD6;
+  }
+
   
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
