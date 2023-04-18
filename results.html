@@ -8,6 +8,9 @@
     <title>Results</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href="./assets/css/normalize.css" />
     <link rel="stylesheet" href="./assets/css/resultsstyle.css" />
@@ -16,108 +19,97 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand is-justify-content-space-between">
+        <div class="navbar-brand">
             <button class="button" id="home-button">
-                <span class="icon is-large">
-                    <img class="fas fa-bold"
-                        src="./assets/images/png-transparent-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-building.png">
-                    </i>
+                <span class="icon">
+                    <img
+                        src="./assets/images/png-transparent-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-building.png"></i>
                 </span>
             </button>
             <h1 class="title">Nutricipe</h1>
-            <a class="button is-primary" href="https://github.com/MCReagan/Calorie-Counter">Contact Us</a>
+            <a class="button" id="contact-button" href="https://github.com/MCReagan/Calorie-Counter">Contact</a>
             <!-- navbar items, navbar burger... -->
         </div>
     </nav>
-    <!-- HEADER SECTION -->
-    <header>
-        <section class="placeholder-img">
-            <figure>
-                <img src="./assets/images/9026945_placeholder_thin_icon.png" alt="placeholder" />
-                <figcaption>placeholder img</figcaption>
-            </figure>
-        </section>
-        <section class="left-side">
-            <figure>
-                <img src="./assets/images/search-icon.png" alt="search-img" />
-            </figure>
-        </section>
-        <section class="right-side">
-            <h2>SEARCH RECIPE</h2>
-            <div class="field is-grouped mt-3">
-                <p class="control is-expanded">
-                    <input class="input" type="text" placeholder="Ready to try something new?">
-                </p>
-                <p class="control" id="search-btn">
-                    <a class="button is-info">
-                        Find Recipe
-                    </a>
-                </p>
+    <main>
+        <!-- HEADER SECTION -->
+        <header class="searchBox is-flex row">
+            <div class="column is-one-quarter">
+                <!-- can enter account info and image here later-->
             </div>
-        </section>
-
-    </header>
-
-        <section class=""> 
+            <div class="column is-align-content-center">
+                <div class="searchPic column is-one-quarter is-flex is-justify-content-flex-end">
+                    <img src="./assets/images/search-icon.png">
+                </div>
+                <div class="searchField column is-three-quarters">
+                    <h2>Search Recipes</h2>
+                    <div class="field has-addons">
+                        <input class="input" type="text" placeholder="Enter Keywords to find your recipe...">
+                        <button id="search-btn" class="button">GO</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="">
             <div class="row">
-                <div class="column">
-                  <div class="card">
-                    <h3>Recent</h3>
+                <div class="column card-column">
+                    <div class="card">
+                        <h3>Recent</h3>
 
-                   <!--need console log for recents-->
-                   <table>
-                      <tr>
-                      <td>example</td>
-                     
-                    </tr>
+                        <!--need console log for recents-->
+                        <table>
+                            <tr>
+                                <td>example</td>
 
-                    <tr>
-                      <td>example</td>
-    
-                    </tr>
+                            </tr>
 
-                    <tr>
-                        <td>example</td>
-      
-                      </tr>
-                     </table>
+                            <tr>
+                                <td>example</td>
 
-                
-                  </div>
+                            </tr>
+
+                            <tr>
+                                <td>example</td>
+
+                            </tr>
+                        </table>
+
+
+                    </div>
                 </div>
-              
-                <div class="column">
-                  <div class="card">
-                    <h3>Favorites</h3>
-                    <table>
-                        <tr>
-                        <td>example</td>
-                       
-                      </tr>
-  
-                      <tr>
-                        <td>example</td>
-      
-                      </tr>
-  
-                      <tr>
-                          <td>example</td>
-        
-                        </tr>
-                       </table>
-                  </div>
+
+                <div class="column card-column">
+                    <div class="card">
+                        <h3>Favorites</h3>
+                        <table>
+                            <tr>
+                                <td>example</td>
+
+                            </tr>
+
+                            <tr>
+                                <td>example</td>
+
+                            </tr>
+
+                            <tr>
+                                <td>example</td>
+
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                
+
                 <div class="column">
-                  <div class="image" >
+                    <div class="image">
+
+                    </div>
+
 
                 </div>
-                
-        
-              </div>
-              
-         </section>
 
+        </section>
+    </main>
 </body>
 
 
