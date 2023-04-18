@@ -1,37 +1,20 @@
+/* navbar section */
 .navbar-brand {
     border-bottom: 5px solid black;
     min-width: 100vw;
-    height: 10vw;
+    height: 8vw;
+    display:flex;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.title:not(:last-child) {
+    margin-bottom: 0;
 }
 
 h1 {
     margin: 0;
 }
-
-#home-button {}
-
-main {
-    min-height: 100vw;
-}
-
-section {
-    min-width: 100vw;
-    min-height: 100vw;
-}
-
-.container {
-    margin: 10vw;
-}
-
-.control {
-    justify-content: center;
-    min-width: 100%
-}
-
-h1 {
-    margin: 0;
-}
-
 
 /* HEADER SECTION */
 header {
@@ -48,12 +31,11 @@ header {
 }
 
 .right-side {
-
     width: 992px;
     height: 200px;
 }
 
-img {
+figure img {
     width: 150px;
     height: 150px;
     margin-left: 60px;
