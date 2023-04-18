@@ -1,8 +1,18 @@
-# Calorie-Counter
+# 🍽️ Calorie-Counter 🥗
 
 ---
 
-## Description  
+## Table of Contents
+1. [Description](#description)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Technologies](#technologies)
+5. [Contributions](#contributions)
+6. [License](#license)
+
+---
+
+## Description  📝
 
 - Collaborative group effort with fellow students to create a front end application that helps find good food that is healthy.
 
@@ -37,6 +47,8 @@
 ---
 
 ## Contributions
+
+A special thanks to our dedicated team of contributors: 🌟
 
 https://github.com/MCReagan
 https://github.com/Deazymat
