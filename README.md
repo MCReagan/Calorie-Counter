@@ -1,9 +1,55 @@
 # Calorie-Counter
 
+---
 
+<<<<<<< HEAD
 
+=======
+## Description  
+>>>>>>> 2c167fbf398fed1b083277cdb64a767f5daa07d6
 
-# 07 Project 1: Interactive Front-End Application
+- Collaborative group effort with fellow students to create a front end application that helps find good food that is healthy.
+
+---
+
+## Features
+
+- Look for recipes via name.
+- Displays results via the recipe you searched.
+- Shows nutritional facts for each recipe.
+
+---
+
+## Installation
+
+- Clone the Repo.
+- Switch to cloned Repo.
+- Open "index.html file."
+
+---
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript
+- jQuery
+- Ninja Response API
+- Ninja Nutrition API
+- Bulma CSS Framework
+
+---
+
+## Contributions
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+<!-- # 07 Project 1: Interactive Front-End Application
 
 At the conclusion of each phase of this course, you’ll work with a group of your fellow students to create a **project**. A project is collaborative work among a group of developers to create an application that solves a real-world problem. Projects model the experience you’ll encounter in every development role at any company, from large multinational businesses to small startups. Coding is collaborative.
 
