@@ -2,7 +2,11 @@
 
 ---
 
+<<<<<<< HEAD
+
+=======
 ## Description  
+>>>>>>> 2c167fbf398fed1b083277cdb64a767f5daa07d6
 
 - Collaborative group effort with fellow students to create a front end application that helps find good food that is healthy.
 
@@ -166,4 +170,4 @@ This project is graded based on the following criteria:
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
 ---
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved. -->
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
