@@ -1,9 +1,73 @@
-# Calorie-Counter
+# 🍽️ Calorie-Counter 🥗
+
+---
 
 
-<!-- 
+## Table of Contents
+1. [Description](#description)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Technologies](#technologies)
+5. [Contributions](#contributions)
+6. [License](#license)
 
-# 07 Project 1: Interactive Front-End Application
+---
+
+
+## Description  
+
+
+- Collaborative group effort with fellow students to create a front end application that helps find good food that is healthy.
+
+---
+
+## Features
+
+- Look for recipes via name.
+- Displays results via the recipe you searched.
+- Shows nutritional facts for each recipe.
+
+---
+
+## Installation
+
+- Clone the Repo.
+- Switch to cloned Repo.
+- Open "index.html file."
+
+---
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript
+- jQuery
+- Ninja Response API
+- Ninja Nutrition API
+- Bulma CSS Framework
+
+---
+
+## Contributions
+
+A special thanks to our dedicated team of contributors: 🌟
+
+https://github.com/MCReagan
+https://github.com/Deazymat
+https://github.com/garfias06
+https://github.com/SamH16205
+https://github.com/KelClark
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+<!-- # 07 Project 1: Interactive Front-End Application
 
 At the conclusion of each phase of this course, you’ll work with a group of your fellow students to create a **project**. A project is collaborative work among a group of developers to create an application that solves a real-world problem. Projects model the experience you’ll encounter in every development role at any company, from large multinational businesses to small startups. Coding is collaborative.
 
@@ -124,4 +188,4 @@ This project is graded based on the following criteria:
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
 ---
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved. -->
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

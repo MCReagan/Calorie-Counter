@@ -14,6 +14,9 @@ function getIngredientsFromId(query){
     .catch(err => console.error(err));
 }
 
+$("#home-button").on('click', function () {
+  window.location.href = ("index.html");
+});
 
 function getRecipeID(query){
   var recipeId = ''
