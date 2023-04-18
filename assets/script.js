@@ -38,6 +38,20 @@ $.ajax({
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
 
 
+// function displayRecipe() {
+//   var recipe = localStorage.getItem('recipe');  
+//   var resultsDiv = $("#results"); 
+//   resultsDiv.empty(); 
+//     recipe.forEach(function (recipe) {
+//         var recipeDiv = $("<div>").addClass(box);
+//         var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name);
+//         recipeDiv.append(recipeTitle);
+//         resultsDiv.append(recipeDiv);
+//     });
+// }
+
+
+
 
 function displayRecipe() {
   var recipe = localStorage.getItem('recipe');  
@@ -52,12 +66,29 @@ function displayRecipe() {
     });
 
 }
+
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
 $("#search-btn").on("click", function () {
     var query = $("#search-input").val().trim();
+
+    if (query) {
+      localStorage.setItem('recipe', query);
+      recipes.push(query);
+      // displayRecipe();
+      window.location.href = ("results.html");
+    } else {
+      alert("Please enter a recipe");
+    }
+});
+
+$("#home-button").on('click', function () {
+  window.location.href = ("index.html");
+})
+
+
     localStorage.setItem('recipe', query);
 
     recipes.push(query);
@@ -65,6 +96,7 @@ $("#search-btn").on("click", function () {
     displayRecipe();
 
 });
+
 
 // () =======
 // logs ingredients in variable foodIngredients
