@@ -38,6 +38,12 @@
 
 ## Contributions
 
+https://github.com/MCReagan
+https://github.com/Deazymat
+https://github.com/garfias06
+https://github.com/SamH16205
+https://github.com/KelClark
+
 ---
 
 ## License
