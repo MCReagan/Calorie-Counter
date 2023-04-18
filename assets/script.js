@@ -55,6 +55,7 @@ window.location.href = ("index.html");
 
 
 function getIngredientsFromId(query){
+  // puts ingredients in local storage
   const options = {
     method: 'GET',
     headers: {
@@ -65,14 +66,45 @@ function getIngredientsFromId(query){
   
   fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + query + '/information', options)
     .then(response => response.json())
-    .then(response => console.log(response.extendedIngredients))
+    .then(response => localStorage.setItem('ingredientsForCalorieApp', JSON.stringify(response.extendedIngredients)))
     .catch(err => console.error(err));
+
+    var ingredientsList = []
+  var retrievedIngedients = JSON.parse(localStorage.getItem('ingredientsForCalorieApp'))
+
+  for (ing of retrievedIngedients){
+    ingredientsList.push(ing['name'])
+  }
+
+  console.log(ingredientsList)
+
 }
 
 
 
-function getRecipeID(query){
-  var recipeId = ''
+// function getRecipeID(query){
+//   var recipeId = ''
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
+//       'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+//     }
+//   };
+    
+//   fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=' + query, options)
+//     .then(function(response){
+//       return response.json()
+//     })
+//     .then(function(data){
+//       console.log(data)
+//       console.log(data.results[Math.floor(Math.random() * 10)].id)
+//       getIngredientsFromId(String(data.results[Math.floor(Math.random() * 10)].id))
+//     })
+// }
+
+
+function getRecipeID(){
   const options = {
     method: 'GET',
     headers: {
@@ -81,19 +113,18 @@ function getRecipeID(query){
     }
   };
     
-  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=' + query, options)
+  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1', options)
     .then(function(response){
       return response.json()
     })
     .then(function(data){
       console.log(data)
-      console.log(data.results[Math.floor(Math.random() * 10)].id)
-      getIngredientsFromId(String(data.results[Math.floor(Math.random() * 10)].id))
+      console.log(data['recipes'][0]['id'])
+      getIngredientsFromId(data['recipes'][0]['id'])
     })
 }
 
-
-getRecipeID('burger')
+getRecipeID()
 
 
 $("#home-button").on('click', function () {
