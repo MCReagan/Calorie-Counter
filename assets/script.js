@@ -86,17 +86,7 @@ $("#search-btn").on("click", function () {
 
 $("#home-button").on('click', function () {
   window.location.href = ("index.html");
-})
-
-
-    localStorage.setItem('recipe', query);
-
-    recipes.push(query);
-    window.
-    displayRecipe();
-
 });
-
 
 // () =======
 // logs ingredients in variable foodIngredients

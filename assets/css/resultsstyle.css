@@ -1,0 +1,11 @@
+.navbar-brand {
+    border-bottom: 5px solid black;
+    min-width: 100vw;
+    height: 10vw;
+}
+
+#home-button {}
+
+h1 {
+    margin: 0;
+}

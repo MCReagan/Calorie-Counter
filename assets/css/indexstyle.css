@@ -1,0 +1,17 @@
+#search-btn {
+    min-width: 100%;
+}
+
+section {
+    min-height: 100vw;
+}
+
+.container {
+    margin: 10vw;
+    align-items: center;
+}
+
+.control {
+    justify-content: center;
+    min-width: 100%;
+}
