@@ -8,8 +8,6 @@ var recipes = [];
 // success: function (result) ======= calling back for the successful response
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
-
-
 var query = "italian wedding soup"; 
 
 $.ajax({
@@ -27,7 +25,6 @@ $.ajax({
   },
 });
 
-
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
 // var resultsDiv = $("#results"); ======= JQuery entity for the "results div"
 // resultsDiv.empty(); ======= clears the "results div"
@@ -36,8 +33,6 @@ $.ajax({
 // var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name); ======= makes the h3 element for the "is-size-4" class and make the text to the recipe name
 // recipeDiv.append(recipeTitle); ======= appends the title for the recipeDiv
 // resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
-
-
 
 function displayRecipe() {
   var recipe = localStorage.getItem('recipe');  
@@ -52,18 +47,26 @@ function displayRecipe() {
     });
 
 }
+
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
 $("#search-btn").on("click", function () {
     var query = $("#search-input").val().trim();
-    localStorage.setItem('recipe', query);
 
-    recipes.push(query);
-    window.
-    displayRecipe();
+    if (query) {
+      localStorage.setItem('recipe', query);
+      recipes.push(query);
+      // displayRecipe();
+      window.location.href = ("results.html");
+    } else {
+      alert("Please enter a recipe");
+    }
+});
 
+$("#home-button").on('click', function () {
+  window.location.href = ("index.html");
 });
 
 // () =======
