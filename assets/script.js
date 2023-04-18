@@ -9,24 +9,6 @@
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
 
 
-var recipes = [];
-var query = "italian wedding soup"; 
-
-$.ajax({
-  method: "GET",
-  url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
-  headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" },
-  contentType: "application/json",
-  success: function (result) {
-    var foodIngredients = result[1].ingredients;
-    console.log(foodIngredients);
-    console.log(result);
-  },
-  error: function ajaxError(jqXHR) {
-    console.error("Error: ", jqXHR.responseText);
-  },
-});
-
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
 // var resultsDiv = $("#results"); ======= JQuery entity for the "results div"
 // resultsDiv.empty(); ======= clears the "results div"
@@ -52,6 +34,7 @@ function displayRecipe() {
 
 }
 
+
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
@@ -69,23 +52,19 @@ var homeBtn = $("#home-button");
 var errorMessage = $("#error-message");
 
 
-
-
-
-
 $("#search-btn").on("click", function () {
-    var query = $("#search-input").val().trim();
 
-    if (query) {
-      searchRecipes(query);
-      // localStorage.setItem('recipe', query);
-      // recipes.push(query);
-      // // displayRecipe();
-      // window.location.href = ("results.html");
-    } else {
-    
-      displayError("this is a error message")
-    }
+  var query = $("#search-input").val().trim();
+
+  if (query) {
+    localStorage.setItem('recipe', query);
+    recipes.push(query);
+    // displayRecipe();
+    window.location.href = ("results.html");
+  } else {
+    alert("Please enter a recipe");
+  }
+
 });
 
 
@@ -111,8 +90,83 @@ homeBtn.on("click", function() {
 
 
 $("#home-button").on('click', function () {
-  window.location.href = ("index.html");
+window.location.href = ("index.html");
 });
 
-// () =======
-// logs ingredients in variable foodIngredients
+
+function getIngredientsFromId(query){
+  // puts ingredients in local storage
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
+      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    }
+  };
+  
+  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + query + '/information', options)
+    .then(response => response.json())
+    .then(response => localStorage.setItem('ingredientsForCalorieApp', JSON.stringify(response.extendedIngredients)))
+    .catch(err => console.error(err));
+
+    var ingredientsList = []
+  var retrievedIngedients = JSON.parse(localStorage.getItem('ingredientsForCalorieApp'))
+
+  for (ing of retrievedIngedients){
+    ingredientsList.push(ing['name'])
+  }
+
+  console.log(ingredientsList)
+
+}
+
+
+
+// function getRecipeID(query){
+//   var recipeId = ''
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
+//       'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+//     }
+//   };
+    
+//   fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=' + query, options)
+//     .then(function(response){
+//       return response.json()
+//     })
+//     .then(function(data){
+//       console.log(data)
+//       console.log(data.results[Math.floor(Math.random() * 10)].id)
+//       getIngredientsFromId(String(data.results[Math.floor(Math.random() * 10)].id))
+//     })
+// }
+
+
+function getRecipeID(){
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
+      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    }
+  };
+    
+  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1', options)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(data){
+      console.log(data)
+      console.log(data['recipes'][0]['id'])
+      getIngredientsFromId(data['recipes'][0]['id'])
+    })
+}
+
+getRecipeID()
+
+
+$("#home-button").on('click', function () {
+  window.location.href = ("index.html");
+});
