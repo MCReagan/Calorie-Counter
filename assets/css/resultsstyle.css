@@ -1,6 +1,14 @@
+:root { 
+    --gray: #CDCBD6; 
+    --sienna: #D96846; 
+    --moss: #596235; 
+    --olive: #2f3020;
+
+}
+
 /* navbar section */
 .navbar-brand {
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid;
     min-width: 100vw;
     height: 8vw;
     display:flex;
@@ -45,7 +53,6 @@ h2 {
     font-size: 40px;
 }
 
-:root { --gray: #CDCBD6; --sienna: #D96846; --moss: #596235; --olive: #2f3020;}
 
  /* Float columns side by side */
  .column {
@@ -72,7 +79,6 @@ h2 {
     background-color: #f1f1f1;
   }
 
-  tr:nth-child(even) {background-color: #CDCBD6;}
 
   tr:hover {background-color: #D96846;}
 
@@ -81,7 +87,14 @@ h2 {
     color: #CDCBD6;
   }
 
-  
+  table, th, td {
+    border: 1px solid;
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
     .column {
@@ -91,3 +104,4 @@ h2 {
     }
   }
   
+
