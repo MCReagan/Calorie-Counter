@@ -449,4 +449,5 @@ input:not(.btn):focus {
 
 .table tbody tr:nth-child(2n + 1) {
   background-color: var(--neutral-5);
+  
 }
