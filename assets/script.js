@@ -105,6 +105,7 @@ function generateRecipe(){
     })
 
     .then(function(data){
+      console.log(data)
       localStorage.setItem('randomRecipeIngredients', JSON.stringify(data['recipes'][0]['extendedIngredients']))
       localStorage.setItem('recipeInstructions', JSON.stringify(data['recipes'][0]['analyzedInstructions'][0]['steps']))
       localStorage.setItem('randomRecipeName', JSON.stringify(data['recipes'][0]['title']))
@@ -117,13 +118,14 @@ function generateRecipe(){
     var recipeInstructions = []
     var recipeIngredients = []
     for(var ing of recipeIngredientsJSON){
+      // todo: change amount to a fraction
       recipeIngredients.push((ing['amount'] + ' ' + ing['unit'] + ' ' + ing['name']))
     }
 
     for (var ins of recipeInstructionsJSON){
       recipeInstructions.push(ins['step'])
     }
-    return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
+    return [recipeName, recipeServings, convertList(recipeIngredients), recipeInstructions]
 }
 
 
@@ -133,21 +135,21 @@ $("#home-button").on("click", function () {
 
 
 function nutritionInfo(recipeArray){
+  // todo: remove empty lists in recipeArray[2] and break up entries that are separated into two lists
 // makes an api call on each ingredient
 // recipe array = return value of generateRecipe()
 // calories, protein, carbs, fat, sugar
-var lst = []
 console.log(recipeArray[2])
 for (var ing of recipeArray[2]){
 
-var q = $.ajax({
+$.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/nutrition?query=' + ing,
     headers: { 'X-Api-Key': '3TpEafSFnQPCwY3sTujznK9xeBtbG98f8IMZ7H44'},
     contentType: 'application/json',
     success: function(result) {
-        // console.log(result);
-        return result.responseJSON
+        console.log(result);
+        console.log(result[0]['calories'])
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
@@ -156,4 +158,32 @@ var q = $.ajax({
 }
 }
 
-nutritionInfo(generateRecipe())
+console.log(nutritionInfo(generateRecipe()))
+
+
+function convertString(str){
+  // because the api ninjas nutrition api cannot read cups, this function roughly converts cups to grams
+  if (str.includes('cup')){
+    if (str.includes('cups')){
+      var result = str.split('cups')
+      var grams = String(Number(result[0]) * 120) + ' grams'
+      result.shift()
+      return grams + result
+    } else{
+      var result = str.split('cup')
+      var grams = String(Number(result[0]) * 120) + ' grams'
+      result.shift()
+      return grams + result
+  }
+}else{return str}
+
+}
+
+function convertList(lst){
+  // applies convertString to all ingredients
+  var newList = []
+  for (var item of lst){
+    newList.push(convertString(item))
+  }
+  return newList
+}
