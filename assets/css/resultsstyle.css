@@ -1,93 +1,156 @@
-/* navbar section */
+:root {
+  --gray: #CDCBD6;
+  --sienna: #D96846;
+  --moss: #596235;
+  --olive: #2f3020;
+  --white: #fff;
+}
+
+* {
+  font-family: 'Oxygen', sans-serif;
+}
+
+html {
+  overflow-y: hidden;
+}
+
+main {
+  background-color: var(--moss);
+}
+
+/* NAVBAR SECTION */
+#contact-button {
+  background-color: var(--olive);
+  color: var(--white);
+  width: 100px;
+  border: 2px solid var(--gray);
+  font-size: 1rem;
+}
+
+.title {
+  color: var(--white);
+  font-size: 5vw;
+  margin: 0;
+}
+
 .navbar-brand {
-    border-bottom: 5px solid black;
-    min-width: 100vw;
-    height: 8vw;
-    display:flex;
-    align-items: center;
-    padding: 0 5vw;
+  justify-content: space-between;
+  background-color: var(--sienna);
+  border-bottom: 5px solid var(--gray);
+  min-width: 100%;
+  max-width: 100%;
+  height: 8vw;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
 }
 
 .title:not(:last-child) {
-    margin-bottom: 0;
-}
-
-h1 {
-    margin: 0;
+  margin-bottom: 0;
 }
 
 /* HEADER SECTION */
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#search-btn {
+  border-radius: 0;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: var(--sienna);
+  color: var(--white);
 }
 
-.left-side,
-.placeholder-img {
-
-    width: 250px;
-    height: 200px;
+.searchField {
+  width: 100%;
 }
 
-.right-side {
-    width: 992px;
-    height: 200px;
-}
-
-figure img {
-    width: 150px;
-    height: 150px;
-    margin-left: 60px;
+.input {
+  width: 80vw;
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 h2 {
-    font-size: 40px;
+  font-size: 2rem;
 }
 
-:root { --gray: #CDCBD6; --sienna: #D96846; --moss: #596235; --olive: #2f3020;}
+header {
+  color: var(--white);
+  padding: 10px;
+}
 
- /* Float columns side by side */
- .column {
-    float: left;
-    width: 25%;
-    padding: 0 10px;
-  }
-  
-  /* Remove extra margins from padding in columns */
-  .row {margin: 0 -5px;}
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the counter cards */
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    background-color: #f1f1f1;
+header img {
+  width: 10vw;
+  max-width: 120px;
+}
+
+/* Float columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* MAIN SECTION */
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: var(--white);
+}
+
+tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+tr:hover {
+  background-color: var(--sienna);
+}
+
+th {
+  background-color: var(--sienna);
+  color: var(--gray);
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 769px) {
+  .input {
+    width: 100%;
   }
 
-  tr:nth-child(even) {background-color: #CDCBD6;}
-
-  tr:hover {background-color: #D96846;}
-
-  th {
-    background-color: #d96846;
-    color: #CDCBD6;
+  .searchField {
+    width: 100%;
   }
 
-  
-  /* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
+  header img {
+    display: none;
   }
-  
+
+  h2 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
