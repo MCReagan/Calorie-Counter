@@ -88,45 +88,8 @@ function hideError() {
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
-
-function getIngredientsFromId(query){
-  // returns the ingredients of whatever recipe's ID is passed in
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea",
-      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    },
-  };
-
-  fetch(
-    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-      query +
-      "/information",
-    options
-  )
-    .then((response) => response.json())
-    .then((response) =>
-      localStorage.setItem(
-        "ingredientsForCalorieApp",
-        JSON.stringify(response.extendedIngredients)
-      )
-    )
-    .catch((err) => console.error(err));
-
-    var ingredientsList = []
-    var retrievedIngedients = JSON.parse(localStorage.getItem('ingredientsForCalorieApp'))
-
-  for (ing of retrievedIngedients){
-    ingredientsList.push(ing['name'])
-    
-  }
-  return ingredientsList
-}
-
-
-function getRecipeID(){
-  // returns a random recipe's ID
+function generateRecipe(){
+  // returns a random recipe's name, servings, ingredients and instructions
   const options = {
     method: "GET",
     headers: {
@@ -141,20 +104,27 @@ function getRecipeID(){
     })
 
     .then(function(data){
-      console.log(data)
-      console.log(data['recipes'][0]['title'])
-      localStorage.setItem('randomRecipeID', JSON.stringify(data['recipes'][0]['id']))
-      console.log(data['recipes'][0]['id'])
+      localStorage.setItem('randomRecipeIngredients', JSON.stringify(data['recipes'][0]['extendedIngredients']))
+      localStorage.setItem('recipeInstructions', JSON.stringify(data['recipes'][0]['analyzedInstructions'][0]['steps']))
+      localStorage.setItem('randomRecipeName', JSON.stringify(data['recipes'][0]['title']))
+      localStorage.setItem('randomRecipeServings', JSON.stringify(data['recipes'][0]['servings']))
     })
-    return JSON.parse(localStorage.getItem('randomRecipeID'))
+    var recipeName = JSON.parse(localStorage.getItem('randomRecipeName'))
+    var recipeServings = JSON.parse(localStorage.getItem('randomRecipeServings'))
+    var recipeIngredientsJSON = JSON.parse(localStorage.getItem('randomRecipeIngredients'))
+    var recipeInstructionsJSON = JSON.parse(localStorage.getItem('recipeInstructions'))
+    var recipeInstructions = []
+    var recipeIngredients = []
+    for(var ing of recipeIngredientsJSON){
+      recipeIngredients.push((ing['amount'] + ' ' + ing['unit'] + ' ' + ing['name']))
+    }
 
+    for (var ins of recipeInstructionsJSON){
+      recipeInstructions.push(ins['step'])
+    }
+    return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
 }
 
-function ingredientsFromRandomRecipe(){
-  var ingredients = getIngredientsFromId(getRecipeID())
-  console.log(ingredients)
-}
-ingredientsFromRandomRecipe()
 
 $("#home-button").on("click", function () {
   window.location.href = "index.html";
