@@ -16,29 +16,31 @@
 <body>
     <main>
         <!-- Bulma section for grouping content -->
-        <section class="section hero is-fullheight ">
-            <!--Bulma container for centering content  -->
-            <div class="container">
-                <!-- Main title of the webpage -->
-                <h1 class="title">Nutricipe</h1>
-                <!-- Search for the recipe content -->
-                <div class="field">
-                    <label class="label">Enter the name of a recipe to recieve nutritional information.</label>
-                    <div class="control">
-                        <input class="input" type="text" id="search-input" placeholder="Enter a recipe name" />
-                    </div>
-                </div>
-                <!-- Search button for making the recipe search -->
-                <button class="button is-primary" id="search-btn">Search</button>
-                <!-- Horizontal rule for separation for visual separation -->
+        <form class="form custom-container">
+
+            <figure class="logo">
+              <img src="./assets/images/logo.png" alt="logo">
+            </figure>
+  
+        <div class="field name-box">
+              <label class="label">RECIPE:</label>
+              <div class="control">
+                <input id="userName" class="input" type="text" placeholder="Enter a Recipe Name...">
+              </div>
             </div>
-        </section>
-
-
+   
+            <div class="field">
+              <p class="control">
+                <button id="signUp" class="button is-success has-background-warning-dark sign-up">
+                  Sign Up
+                </button>
+              </p>
+            </div>
+      </form>
             
     </main>
-</body>
+
 <!-- The javaScript file -->
 <script src="./assets/script.js"></script>
-
+</body>
 </html>

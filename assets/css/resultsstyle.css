@@ -83,11 +83,20 @@ header img {
   max-width: 120px;
 }
 
-/* Float columns side by side */
+/* Create two equal columns that float next to each other */
 .column {
   float: left;
-  width: 25%;
-  height: 100%;
+  padding: 10px;
+  height: 300px;
+ }
+
+/* Left column */
+.left {
+  width: 40%;
+}
+/* right column */
+.right {
+  width: 60%;
 }
 
 /* Clear floats after the columns */
@@ -97,6 +106,66 @@ header img {
   clear: both;
 }
 
+/* Responsive columns - one column layout (vertical) on small screens */
+/* 769px overwrites bulma css for screen resize */
+@media screen and (max-width: 769px) {
+  .input {
+    width: 100%;
+  }
+
+  .searchBox {
+    max-width: 0px;
+    padding: 0;
+  }
+
+  .searchField {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .searchPic {
+    max-width: 0px;
+    padding: 0px;
+  }
+
+  header img {
+    display: none;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    min-height: 12.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  table, th, td {
+    border: 1px solid;
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
 /* MAIN SECTION */
 /* Style the counter cards */
 .card {
@@ -128,8 +197,19 @@ th {
     width: 100%;
   }
 
+  .searchBox {
+    max-width: 0px;
+    padding: 0;
+  }
+
   .searchField {
     width: 100%;
+    margin: 10px 0;
+  }
+
+  .searchPic {
+    max-width: 0px;
+    padding: 0px;
   }
 
   header img {
@@ -138,6 +218,14 @@ th {
 
   h2 {
     font-size: 25px;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    min-height: 12.5vw;
   }
 }
 
@@ -160,6 +248,39 @@ th {
     text-align: center;
   }
 
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* MAIN SECTION */
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: var(--white);
+}
+
+tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+
+tr:hover {
+  background-color: var(--sienna);
+}
+
+
+th {
+  background-color: var(--sienna);
+  color: var(--gray);
+}
+
+
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
     .column {
@@ -167,10 +288,165 @@ th {
       display: block;
       margin-bottom: 20px;
     }
+    h2 {
+      font-size: 20px;
+    }
+  
+    .searchField {
+      margin-bottom: 0px;
+    }
   }
   
-  h2 {
-    font-size: 20px;
-  }
+
+/* Recents table */
+
+body {
+  font-family: sans-serif;
+  background-color: var(--gray);
+  margin: 0;
 }
 
+h1 {
+  font-size: 36px;
+  font-weight: normal;
+  
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a {
+  color: var(--primary-2);
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Nutrition Table */
+
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.input-required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: normal;
+  padding: 0 1px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  padding: 0.75em 0.5em;
+  min-width: 200px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+  transition: border-left-color 160ms;
+  background-color: white;
+  width: 100%;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--primary-1);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--primary-1);
+  color:var(--gray);
+  border: 2px solid var(--olive);
+}
+
+.table th {
+  padding: 15px;
+}
+
+.table td {
+  padding: 10px;
+}
+
+.table tbody {
+  font-size: 18px;
+  border: 1px solid var(--gray);
+}
+
+.table tbody tr:nth-child(2n) {
+  background-color: white;
+}
+
+.table tbody tr:nth-child(2n + 1) {
+  background-color: var(--neutral-5);
+}
