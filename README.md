@@ -53,11 +53,11 @@
 
 A special thanks to our dedicated team of contributors: 🌟
 
-https://github.com/MCReagan
-https://github.com/Deazymat
-https://github.com/garfias06
-https://github.com/SamH16205
-https://github.com/KelClark
+* https://github.com/MCReagan
+* https://github.com/Deazymat
+* https://github.com/garfias06
+* https://github.com/SamH16205
+* https://github.com/KelClark
 
 ---
 
