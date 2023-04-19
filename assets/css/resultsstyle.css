@@ -111,9 +111,11 @@ tr:nth-child(even) {
   background-color: var(--gray);
 }
 
+
 tr:hover {
   background-color: var(--sienna);
 }
+
 
 th {
   background-color: var(--sienna);
@@ -150,7 +152,25 @@ th {
     font-size: 30px;
   }
 
+  table, th, td {
+    border: 1px solid;
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
   h2 {
     font-size: 20px;
   }
 }
+
