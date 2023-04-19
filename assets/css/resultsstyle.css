@@ -123,17 +123,25 @@ th {
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
+/* 769px overwrites bulma css for screen resize */
 @media screen and (max-width: 769px) {
   .input {
     width: 100%;
   }
 
   .searchBox {
-    max-width: 0vw;
+    max-width: 0px;
+    padding: 0;
   }
 
   .searchField {
     width: 100%;
+    margin: 10px 0;
+  }
+
+  .searchPic {
+    max-width: 0px;
+    padding: 0px;
   }
 
   header img {
@@ -142,6 +150,14 @@ th {
 
   h2 {
     font-size: 25px;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    min-height: 12.5vw;
   }
 }
 
@@ -175,6 +191,10 @@ th {
   
   h2 {
     font-size: 20px;
+  }
+
+  .searchField {
+    margin-bottom: 0px;
   }
 }
 
