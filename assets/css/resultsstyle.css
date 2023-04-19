@@ -83,11 +83,20 @@ header img {
   max-width: 120px;
 }
 
-/* Float columns side by side */
+/* Create two equal columns that float next to each other */
 .column {
   float: left;
-  width: 25%;
-  height: 100%;
+  padding: 10px;
+  height: 300px;
+ }
+
+/* Left column */
+.left {
+  width: 40%;
+}
+/* right column */
+.right {
+  width: 60%;
 }
 
 /* Clear floats after the columns */
@@ -95,6 +104,13 @@ header img {
   content: "";
   display: table;
   clear: both;
+}
+
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
 
 /* MAIN SECTION */
@@ -122,43 +138,6 @@ th {
   color: var(--gray);
 }
 
-/* Responsive columns - one column layout (vertical) on small screens */
-@media screen and (max-width: 769px) {
-  .input {
-    width: 100%;
-  }
-
-  .searchField {
-    width: 100%;
-  }
-
-  header img {
-    display: none;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card-column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  table, th, td {
-    border: 1px solid;
-  }
-  th, td {
-    padding: 15px;
-    text-align: center;
-  }
 
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
@@ -172,24 +151,25 @@ th {
   h2 {
     font-size: 20px;
   }
-}
 
-/* Nutrition table */
+
+/* Recents table */
 
 body {
   font-family: sans-serif;
-  background-color: var(--neutral-5);
+  background-color: var(--gray);
   margin: 0;
 }
 
 h1 {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: normal;
+  
 }
 
 h2 {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: normal;
 }
 
 h3 {
@@ -221,7 +201,8 @@ a:hover {
   padding: 0 20px;
 }
 
-/* FORMS */
+/* Nutrition Table */
+
 .form h2 {
   font-size: 24px;
   font-weight: 400;
@@ -241,7 +222,7 @@ a:hover {
 .input-required {
   color: var(--primary-2);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: normal;
   padding: 0 1px;
 }
 
@@ -300,8 +281,8 @@ input:not(.btn):focus {
 
 .table thead {
   background-color: var(--primary-1);
-  color: white;
-  border: 1px solid white;
+  color:var(--gray);
+  border: 2px solid var(--olive);
 }
 
 .table th {
@@ -314,7 +295,7 @@ input:not(.btn):focus {
 
 .table tbody {
   font-size: 18px;
-  border: 1px solid white;
+  border: 1px solid var(--gray);
 }
 
 .table tbody tr:nth-child(2n) {

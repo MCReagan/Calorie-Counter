@@ -251,6 +251,7 @@ $("#home-button").on('click', function () {
 });
 
 
+// Nutrition Table //
 import "./styles.css";
 
 export const renderTableRows = (rows) => {
