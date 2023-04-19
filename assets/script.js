@@ -107,7 +107,6 @@ function hideError() {
   errorMessage.hide();
 }
 
-
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
@@ -116,17 +115,27 @@ function hideError() {
 function getIngredientsFromId(query){
   // puts the ingredients of whatever recipe's id is passed in into local storage and then retrieves them 
   const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
-      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea",
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    },
   };
-  
-  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + query + '/information', options)
-    .then(response => response.json())
-    .then(response => localStorage.setItem('ingredientsForCalorieApp', JSON.stringify(response.extendedIngredients)))
-    .catch(err => console.error(err));
+
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
+      query +
+      "/information",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) =>
+      localStorage.setItem(
+        "ingredientsForCalorieApp",
+        JSON.stringify(response.extendedIngredients)
+      )
+    )
+    .catch((err) => console.error(err));
 
     var ingredientsList = []
     var retrievedIngedients = JSON.parse(localStorage.getItem('ingredientsForCalorieApp'))
@@ -142,30 +151,29 @@ function getIngredientsFromId(query){
 function getRecipeID(){
   // generates a random recipe
   const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
-      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea",
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    },
   };
     
   fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random', options)
     .then(function(response){
       return response.json()
     })
-    .then(function(data){
-      console.log(data)
-      console.log(data['recipes'][0]['id'])
-      getIngredientsFromId(data['recipes'][0]['id'])
-    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data["recipes"][0]["id"]);
+      getIngredientsFromId(data["recipes"][0]["id"]);
+    });
 }
 
 getRecipeID()
 // generates a random recipe, gets its ID and passes it to the ingredients function, which 
 
-
-$("#home-button").on('click', function () {
-  window.location.href = ("index.html");
+$("#home-button").on("click", function () {
+  window.location.href = "index.html";
 });
 
 // Nutrition Table //
