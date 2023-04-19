@@ -107,13 +107,25 @@ header img {
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
+/* 769px overwrites bulma css for screen resize */
 @media screen and (max-width: 769px) {
   .input {
     width: 100%;
   }
 
+  .searchBox {
+    max-width: 0px;
+    padding: 0;
+  }
+
   .searchField {
     width: 100%;
+    margin: 10px 0;
+  }
+
+  .searchPic {
+    max-width: 0px;
+    padding: 0px;
   }
 
   header img {
@@ -122,6 +134,98 @@ header img {
 
   h2 {
     font-size: 25px;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    min-height: 12.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  table, th, td {
+    border: 1px solid;
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
+/* MAIN SECTION */
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: var(--white);
+}
+
+tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+
+tr:hover {
+  background-color: var(--sienna);
+}
+
+
+th {
+  background-color: var(--sienna);
+  color: var(--gray);
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 769px) {
+  .input {
+    width: 100%;
+  }
+
+  .searchBox {
+    max-width: 0px;
+    padding: 0;
+  }
+
+  .searchField {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .searchPic {
+    max-width: 0px;
+    padding: 0px;
+  }
+
+  header img {
+    display: none;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    min-height: 12.5vw;
   }
 }
 
@@ -184,12 +288,15 @@ th {
       display: block;
       margin-bottom: 20px;
     }
+    h2 {
+      font-size: 20px;
+    }
+  
+    .searchField {
+      margin-bottom: 0px;
+    }
   }
   
-  h2 {
-    font-size: 20px;
-  }
-
 
 /* Recents table */
 
