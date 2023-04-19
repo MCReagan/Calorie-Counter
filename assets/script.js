@@ -5,6 +5,74 @@
 // contentType: "application/json", ======= is the data that is sent to the server
 // success: function (result) ======= calling back for the successful response
 // error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
+$(document).ready(function () {
+  var storedQuery = localStorage.getItem("lastSearchQuery");
+  if (storedQuery) {
+    searchInput.val(storedQuery);
+  }
+});
+var searchBtn = $("#search-btn");
+var searchInput = $("#search-input");
+var homeBtn = $("#home-button");
+var errorMessage = $("#error-message");
+
+$("#search-btn").on("click", function () {
+  var query = $("#search-input").val().trim();
+
+  if (query) {
+    searchRecipes(query);
+    // localStorage.setItem('recipe', query);
+    // recipes.push(query);
+    // // displayRecipe();
+    // window.location.href = ("results.html");
+  } else {
+    displayError("this is a error message");
+  }
+});
+
+searchInput.on("keydown", function (event) {
+  if (event.key === "Enter") {
+    var query = searchInput.val().trim();
+    if (query) {
+      searchRecipes(query);
+    } else {
+      displayError("this is a error message");
+    }
+  }
+});
+
+homeBtn.on("click", function () {
+  window.location.href = "index.html";
+});
+
+// $("#home-button").on("click", function () {
+//   window.location.href = "index.html";
+// };)
+// var recipes = [];
+// var query = "italian wedding soup";
+
+function searchRecipes(query) {
+  console.log('Searching for recipes with "${query}"');
+  localStorage.setIem("lastSearchQuery", query);
+
+  $.ajax({
+    method: "GET",
+    url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
+    headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" },
+    contentType: "application/json",
+    success: function (result) {
+      displayRecipe(result);
+      // var foodIngredients = result[1].ingredients;
+      // console.log(foodIngredients);
+      // console.log(result);
+    },
+
+    error: function ajaxError(jqXHR) {
+      console.error("Error: ", jqXHR.responseText);
+    },
+  });
+}
+
 
 
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
@@ -43,64 +111,10 @@ function hideError() {
 // $("#search-btn").on("click", function () ======= the event Listener for the search button.
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
-$(document).ready(function () {
-var storedQuery = localStorage.getItem("lastSearchQuery");
-if (storedQuery) {
-  searchInput.val(storedQuery);
-
-}
-
-});
-var searchBtn = $("#search-btn");
-var searchInput = $("#search-input");
-var homeBtn = $("#home-button");
-var errorMessage = $("#error-message");
-
-
-$("#search-btn").on("click", function () {
-
-  var query = $("#search-input").val().trim();
-
-  if (query) {
-    localStorage.setItem('recipe', query);
-    recipes.push(query);
-    // displayRecipe();
-    window.location.href = ("results.html");
-  } else {
-    alert("Please enter a recipe");
-  }
-
-});
-
-
-searchInput.on("keydown", function (event) {
-if (event-key === "Enter") {
-var query = searchInput.val().trim();
-if (query) {
-  searchRecipes(query);
-} else {
-  displayError("this is a error message")
-}
-}
-
-});
-
-homeBtn.on("click", function() {
-  window.location.href = "index.html";
-
-});
-
-
-
-
-
-$("#home-button").on('click', function () {
-window.location.href = ("index.html");
-});
 
 
 function getIngredientsFromId(query){
-  // puts ingredients in local storage
+  // puts the ingredients of whatever recipe's id is passed in into local storage and then retrieves them 
   const options = {
     method: 'GET',
     headers: {
@@ -115,41 +129,18 @@ function getIngredientsFromId(query){
     .catch(err => console.error(err));
 
     var ingredientsList = []
-  var retrievedIngedients = JSON.parse(localStorage.getItem('ingredientsForCalorieApp'))
+    var retrievedIngedients = JSON.parse(localStorage.getItem('ingredientsForCalorieApp'))
 
   for (ing of retrievedIngedients){
     ingredientsList.push(ing['name'])
+    
   }
-
   console.log(ingredientsList)
-
 }
 
 
-
-// function getRecipeID(query){
-//   var recipeId = ''
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       'X-RapidAPI-Key': 'a0cc7ba7dcmshb8b57f3adb29db3p11639djsnd89090b0b1ea',
-//       'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-//     }
-//   };
-    
-//   fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=' + query, options)
-//     .then(function(response){
-//       return response.json()
-//     })
-//     .then(function(data){
-//       console.log(data)
-//       console.log(data.results[Math.floor(Math.random() * 10)].id)
-//       getIngredientsFromId(String(data.results[Math.floor(Math.random() * 10)].id))
-//     })
-// }
-
-
 function getRecipeID(){
+  // generates a random recipe
   const options = {
     method: 'GET',
     headers: {
@@ -158,7 +149,7 @@ function getRecipeID(){
     }
   };
     
-  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1', options)
+  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random', options)
     .then(function(response){
       return response.json()
     })
@@ -170,12 +161,12 @@ function getRecipeID(){
 }
 
 getRecipeID()
+// generates a random recipe, gets its ID and passes it to the ingredients function, which 
 
 
 $("#home-button").on('click', function () {
   window.location.href = ("index.html");
 });
-
 
 // Nutrition Table //
 import "./styles.css";
@@ -197,3 +188,4 @@ const html = renderTableRows(data);
 
 const tbody = document.querySelector("#nutrition-table tbody");
 tbody.insertAdjacentHTML("beforeend", html);
+
