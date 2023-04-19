@@ -47,25 +47,26 @@ homeBtn.on("click", function () {
 
 function searchRecipes(query) {
   console.log('Searching for recipes with "${query}"');
-  localStorage.setItem("lastSearchQuery", query);
-}
+  localStorage.setIem("lastSearchQuery", query);
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
-  //   headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" },
-  //   contentType: "application/json",
-  //   success: function (result) {
-  //     displayRecipe(result);
+  $.ajax({
+    method: "GET",
+    url: "https://api.api-ninjas.com/v1/recipe?query=" + query,
+    headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" },
+    contentType: "application/json",
+    success: function (result) {
+      displayRecipe(result);
       // var foodIngredients = result[1].ingredients;
       // console.log(foodIngredients);
       // console.log(result);
-  //   },
+    },
 
-  //   error: function ajaxError(jqXHR) {
-  //     console.error("Error: ", jqXHR.responseText);
-  //   },
-  // });
+    error: function ajaxError(jqXHR) {
+      console.error("Error: ", jqXHR.responseText);
+    },
+  });
+}
+
 
 
 function displayRecipe() {
@@ -90,8 +91,13 @@ function hideError() {
   errorMessage.hide();
 }
 
-function getIngredientsFromId(query){
+// $("#search-btn").on("click", function () ======= the event Listener for the search button.
+// var query = $("#search-input").val().trim(); ======= stores the value for the search input field
+// fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
+
+function getIngredientsFromId(query){
+  // puts the ingredients of whatever recipe's id is passed in into local storage and then retrieves them 
   const options = {
     method: "GET",
     headers: {
@@ -140,15 +146,29 @@ function getRecipeID(){
     .then(function(response){
       return response.json()
     })
-    .then(function (data) {
-      console.log(data);
-      console.log(data["recipes"][0]["id"]);
-      getIngredientsFromId(data["recipes"][0]["id"]);
-    });
+
+    .then(function(data){
+      localStorage.setItem('randomRecipeIngredients', JSON.stringify(data['recipes'][0]['extendedIngredients']))
+      localStorage.setItem('recipeInstructions', JSON.stringify(data['recipes'][0]['analyzedInstructions'][0]['steps']))
+      localStorage.setItem('randomRecipeName', JSON.stringify(data['recipes'][0]['title']))
+      localStorage.setItem('randomRecipeServings', JSON.stringify(data['recipes'][0]['servings']))
+    })
+    var recipeName = JSON.parse(localStorage.getItem('randomRecipeName'))
+    var recipeServings = JSON.parse(localStorage.getItem('randomRecipeServings'))
+    var recipeIngredientsJSON = JSON.parse(localStorage.getItem('randomRecipeIngredients'))
+    var recipeInstructionsJSON = JSON.parse(localStorage.getItem('recipeInstructions'))
+    var recipeInstructions = []
+    var recipeIngredients = []
+    for(var ing of recipeIngredientsJSON){
+      recipeIngredients.push((ing['amount'] + ' ' + ing['unit'] + ' ' + ing['name']))
+    }
+
+    for (var ins of recipeInstructionsJSON){
+      recipeInstructions.push(ins['step'])
+    }
+    return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
 }
 
-getRecipeID()
-// generates a random recipe, gets its ID and passes it to the ingredients function, which 
 
 $("#home-button").on("click", function () {
   window.location.href = "index.html";
@@ -174,14 +194,4 @@ const html = renderTableRows(data);
 
 const tbody = document.querySelector("#nutrition-table tbody");
 tbody.insertAdjacentHTML("beforeend", html);
-
-$("#signIn").on("click", function () {
-  var storedUserName = localStorage.getItem("userName");
-
-  if (storedUserName) {
-    window.location.href = "results.html";
-  } else {
-    displayError("Please sign up before signing in.");
-  }
-});
 
