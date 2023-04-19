@@ -88,8 +88,8 @@ function hideError() {
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
-function getRecipeID(){
-  // returns a random recipe's name, ingredients and instructions
+function generateRecipe(){
+  // returns a random recipe's name, servings, ingredients and instructions
   const options = {
     method: "GET",
     headers: {
@@ -107,8 +107,10 @@ function getRecipeID(){
       localStorage.setItem('randomRecipeIngredients', JSON.stringify(data['recipes'][0]['extendedIngredients']))
       localStorage.setItem('recipeInstructions', JSON.stringify(data['recipes'][0]['analyzedInstructions'][0]['steps']))
       localStorage.setItem('randomRecipeName', JSON.stringify(data['recipes'][0]['title']))
+      localStorage.setItem('randomRecipeServings', JSON.stringify(data['recipes'][0]['servings']))
     })
     var recipeName = JSON.parse(localStorage.getItem('randomRecipeName'))
+    var recipeServings = JSON.parse(localStorage.getItem('randomRecipeServings'))
     var recipeIngredientsJSON = JSON.parse(localStorage.getItem('randomRecipeIngredients'))
     var recipeInstructionsJSON = JSON.parse(localStorage.getItem('recipeInstructions'))
     var recipeInstructions = []
@@ -120,12 +122,8 @@ function getRecipeID(){
     for (var ins of recipeInstructionsJSON){
       recipeInstructions.push(ins['step'])
     }
-
-    
-    return [recipeName, recipeIngredients, recipeInstructions]
+    return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
 }
-
-console.log(getRecipeID())
 
 
 $("#home-button").on("click", function () {
