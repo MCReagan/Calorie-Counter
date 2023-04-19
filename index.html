@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calorie Counter</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/normalize.css" />
     <link rel="stylesheet" href="./assets/css/indexstyle.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <!-- Bulma section for grouping content -->
-        <form class="form custom-container">
-
-            <figure class="logo">
-              <img src="./assets/images/logo.png" alt="logo">
-            </figure>
-  
+      <!-- Bulma section for grouping content -->
+      <form class="form custom-container">
+        <figure class="logo">
+          <img src="./assets/images/logo.png" alt="logo" />
+        </figure>
         <div class="field name-box">
-              <label class="label">RECIPE:</label>
-              <div class="control">
-                <input id="userName" class="input" type="text" placeholder="Enter a Recipe Name...">
-              </div>
-            </div>
-   
-            <div class="field">
-              <p class="control">
-                <button id="signUp" class="button is-success has-background-warning-dark sign-up">
-                  Sign Up
-                </button>
-              </p>
-            </div>
+          <label class="label">RECIPE:</label>
+          <div class="control">
+            <input
+              id="userName"
+              class="input"
+              type="text"
+              placeholder="Enter a Recipe Name..."
+            />
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button
+              id="signUp"
+              class="button is-success has-background-warning-dark sign-up"
+            >
+              Sign Up
+            </button>
+          </p>
+        </div>
+        <!-- Add the sign-in button here -->
+        <div class="field">
+          <p class="control">
+            <button
+              id="signIn"
+              class="button is-success has-background-info-dark"
+            >
+              Sign In
+            </button>
+          </p>
+        </div>
       </form>
-            
     </main>
-
-<!-- The javaScript file -->
-<script src="./assets/script.js"></script>
-</body>
+    <script src="./assets/script.js"></script>
+  </body>
 </html>
