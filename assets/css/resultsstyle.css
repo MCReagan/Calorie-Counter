@@ -106,6 +106,44 @@ header img {
   clear: both;
 }
 
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 769px) {
+  .input {
+    width: 100%;
+  }
+
+  .searchField {
+    width: 100%;
+  }
+
+  header img {
+    display: none;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  table, th, td {
+    border: 1px solid;
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+
 /* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
 @media screen and (max-width: 600px) {
   .column {
