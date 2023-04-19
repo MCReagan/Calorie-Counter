@@ -20,7 +20,7 @@ html,
     top:20%;
     left:33%;
     width: 35%;
-    padding: 40px;
+    padding: 50px;
     background-color: var(--sienna);
     border-radius: 10px;
     box-shadow:   
@@ -31,9 +31,7 @@ html,
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
-.label{
-    font-size: 22px;
-}
+
 .logo{
     display: flex;
     justify-content: center;
@@ -44,3 +42,48 @@ img{
     border:var(--moss) solid 3px;
     width: 250px;
 }
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 390px) {
+   
+    #signUp{
+        width:fit-content;
+        font-size: 10px;
+    }
+    .text-btn{
+        display: flex;
+        justify-content: center;
+    }
+    
+  }
+
+  @media screen and (min-width: 391px) {
+   
+    #signUp{
+        width:fit-content;
+        font-size: 10px;
+    }
+    .text-btn{
+        display: flex;
+        justify-content: center;
+    }
+    
+  }
+
+   @media screen and (min-width: 520px) { 
+   
+    #signUp{
+        width:fit-content;
+        font-size: 12px;
+    }
+    
+  }  
+
+ @media screen and (min-width: 769px) {
+   
+    #signUp{
+        width:fit-content;
+        font-size: 18px;
+    }
+    
+  } 
