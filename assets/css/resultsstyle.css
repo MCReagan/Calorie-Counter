@@ -126,6 +126,10 @@ th {
     width: 100%;
   }
 
+  .searchBox {
+    max-width: 0vw;
+  }
+
   .searchField {
     width: 100%;
   }
