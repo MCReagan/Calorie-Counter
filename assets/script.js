@@ -96,6 +96,7 @@ function hideError() {
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
 
+
 function getIngredientsFromId(query){
   // puts the ingredients of whatever recipe's id is passed in into local storage and then retrieves them 
   const options = {
@@ -195,3 +196,29 @@ const html = renderTableRows(data);
 const tbody = document.querySelector("#nutrition-table tbody");
 tbody.insertAdjacentHTML("beforeend", html);
 
+
+function nutritionInfo(recipeArray){
+// makes an api call on each ingredient
+// recipe array = return value of generateRecipe()
+// calories, protein, carbs, fat, sugar
+var lst = []
+console.log(recipeArray[2])
+for (var ing of recipeArray[2]){
+
+var q = $.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/nutrition?query=' + ing,
+    headers: { 'X-Api-Key': '3TpEafSFnQPCwY3sTujznK9xeBtbG98f8IMZ7H44'},
+    contentType: 'application/json',
+    success: function(result) {
+        // console.log(result);
+        return result.responseJSON
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
+}
+}
+
+nutritionInfo(generateRecipe())
