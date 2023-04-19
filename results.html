@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href="./assets/css/normalize.css" />
     <link rel="stylesheet" href="./assets/css/resultsstyle.css" />
+    
 </head>
 
 <body>
@@ -49,72 +50,60 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <section class="">
-            <div class="row">
-                <div class="column card-column">
-                    <div class="card">
-                        <h3>Recent</h3>
-
+   
 
     </header>
-<!--recent / favorites cards-->
+<!--recent/results cards-->
         <section class=""> 
             <div class="row">
-                <div class="column">
-                  <div class="card">
-                    <h3>Recents</h3>
-                                      <!--need console log for recents-->
-                   <table>
-                       <tr>
-                      <td>example</td>
-                      </tr>
-
-                    <tr>
-                      <td>example</td>
-                    </tr>
-
-                    <tr>
-                        <td>example</td>
-                    </tr>
-                     </table>
-
-                
+                <div class="column right">
+                   <div class="card" >        
+              <nav class="navbar">
+                  <h1 class="nav-brand">Recents</h1>
+                </nav>                              
+                 <!--need console log for recents-->
+                        <table>
+                            <tr>
+                                <td>example</td>
+                            </tr>
+                            <tr>
+                                <td>example</td>
+                            </tr>
+                            <tr>
+                                <td>example</td>
+                            </tr>
+                        </table>
                   </div>
                 </div>
+                
+                <div class="column right">
+                  <div class="card" >        
+                <nav class="navbar">
+                    <h1 class="nav-brand">Nutrition table</h1>
+                  </nav>
               
-                <div class="column">
-                  <div class="card">
-                    <h3>Favorites</h3>
-                    <table>
+                  <main class="container">
+                    <table class="table" id="nutrition-table">
+                      <thead>
                         <tr>
-                        <td>example</td>
-                      </tr>
-  
-                      <tr>
-                        <td>example</td>
-                     </tr>
-  
-                      <tr>
-                          <td>example</td>
-                     </tr>
-                       </table>
-                  </div>
-
-                </div>
-
-                <div class="column">
-
-                  <div class="image" >
-                </div>
+                          <th>Nutrition</th>
+                          <th>Value</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </main>
+              
+                  <script src="src/index.js"></script>
+              
+            
                 
-                </div>
         </section>
 
 
-        </section>
-    </main>
+     </main>
 </body>
+
 
 
 
