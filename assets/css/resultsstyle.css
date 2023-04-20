@@ -51,6 +51,7 @@ img{
   display: flex;
   align-items: center;
   padding: 0 5vw;
+ box-shadow:0 4px 8px 0 (black);
 }
 
 .title:not(:last-child) {
@@ -65,6 +66,11 @@ img{
   background-color: var(--sienna);
   color: var(--white);
 }
+#search-btn:hover {
+background-color: rgb(134, 170, 211);
+cursor: pointer;
+}
+
 
 .searchField {
   width: 100%;
@@ -85,7 +91,7 @@ h2 {
 
 header {
   color: var(--white);
-  padding: 10px;
+  padding: 35px 0;
 }
 
 header img {
@@ -161,7 +167,14 @@ tr:nth-child(even) {
 tr:hover {
   background-color: var(--sienna);
 }
+.section {
+  padding:40px 0;
+}
 
+.table tbody tr:hover {
+  background-color: rgb(134, 170, 211);
+  cursor: pointer;
+}
 
 th {
   background-color: var(--sienna);
