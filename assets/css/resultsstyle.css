@@ -1,7 +1,7 @@
 :root {
   --gray: #CDCBD6;
-  --sienna: #D96846;
-  --moss: #596235;
+  --sienna: #577399;
+  --moss: #f7f7ff;
   --olive: #2f3020;
   --white: #fff;
 }
@@ -92,6 +92,11 @@ header img {
 }
 
 /* Create two equal columns that float next to each other */
+.table th, .table thead th {
+  color: white;
+}
+
+
 .searchPic,
 .searchField {
   float: left;
