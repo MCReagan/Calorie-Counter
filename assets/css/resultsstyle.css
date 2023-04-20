@@ -157,12 +157,6 @@ tr:nth-child(even) {
   background-color: var(--gray);
 }
 
-
-tr:hover {
-  background-color: var(--sienna);
-}
-
-
 th {
   background-color: var(--sienna);
   color: var(--gray);
@@ -253,8 +247,9 @@ tr:nth-child(even) {
 }
 
 
-tr:hover {
+td:hover {
   background-color: var(--sienna);
+  color: #fff;
 }
 
 
