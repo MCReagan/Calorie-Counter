@@ -165,10 +165,6 @@ tr:nth-child(even) {
   background-color: var(--gray);
 }
 
-tr:hover {
-  background-color: var(--sienna);
-  color: white;
-}
 
 th {
   background-color: var(--sienna);
@@ -275,8 +271,9 @@ tr:nth-child(even) {
 }
 
 
-tr:hover {
+td:hover {
   background-color: var(--sienna);
+  color: #fff;
 }
 
 
