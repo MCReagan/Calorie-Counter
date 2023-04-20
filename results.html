@@ -1,30 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!-- Meta tags for UTF-8 encoding, compatibility with IE browsers and responsiveness -->
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Results</title>
+  <!-- jQuery library for DOM manipulation and handling events -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <!-- Google Fonts for loading the Oxygen font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
-  <link rel="stylesheet" href="./assets/css/normalize.css"/>
-  <link rel="stylesheet" href="./assets/css/resultsstyle.css"/>
+  <!-- Bulma CSS framework for styling and layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <!-- Normalize CSS to make browsers render elements consistently -->
+  <link rel="stylesheet" href="./assets/css/normalize.css" />
+  <!-- Custom CSS file for styling the elements -->
+  <link rel="stylesheet" href="./assets/css/resultsstyle.css" />
 </head>
 
 <body>
   <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <!-- </button> -->
+      <!-- Logo container and image -->
       <figure id="logo" class="icon is-flex">
         <img src="./assets/images/logo.png">
       </figure>
+      <!-- Site title -->
       <h1 class="title">Nutricipe</h1>
+      <!-- Contact button -->
       <a class="button" id="contact-button" href="https://github.com/MCReagan/Calorie-Counter">Contact</a>
       <!-- navbar items, navbar burger... -->
     </div>
@@ -34,6 +38,7 @@
     <header class="is-flex row">
       <div class="column">
         <div class="searchField column is-flex is-justify-content-center">
+          <!-- Button for generating a new recipe -->
           <button id="search-btn" class="button">Generate New Recipe</button>
         </div>
       </div>
@@ -46,11 +51,13 @@
             <table class="table">
               <thead>
                 <tr>
+                  <!-- Nutrition facts table -->
                   <th class="title is-3">Nutrition Facts</th>
                   <th class="title is-3">Value</th>
                 </tr>
               </thead>
               <tbody>
+                <!-- Nutrition data rows -->
                 <tr>
                   <th>Total servings</th>
                   <td id="serving"> </td>
@@ -79,11 +86,12 @@
                   <th>Protein:</th>
                   <td id="protein"> </td>
                 </tr>
-               
+
               </tbody>
             </table>
           </article>
         </div>
+        <!-- Recipe instructions table -->
         <div class="column is-one-quarter">
           <article class="table">
             <table class="table">
@@ -100,6 +108,7 @@
             </table>
           </article>
         </div>
+        <!-- Ingredients table -->
         <div class="column is-one-quarter">
           <article class="table">
             <table class="table">
@@ -107,7 +116,7 @@
                 <tr>
                   <th class="title is-4">Ingredients</th>
                 </tr>
-              </thead> <!--need console log for recents-->
+              </thead> <!--need console log for recent-->
               <tbody>
                 <tr>
                   <td id="ingredients"></td>
