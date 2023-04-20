@@ -131,73 +131,78 @@ function generateRecipe() {
     );
   }
 
-  for (var ins of recipeInstructionsJSON) {
-    recipeInstructions.push(ins["step"]);
-  }
-  return [recipeName, recipeServings, recipeIngredients, recipeInstructions];
+    for (var ins of recipeInstructionsJSON){
+      recipeInstructions.push(ins['step'])
+    }
+    return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
 }
 
 $("#home-button").on("click", function () {
   window.location.href = "index.html";
 });
 
-async function nutritionInfo(recipeArray) {
+
+
+async function nutritionInfo(recipeArray){
   // todo: remove empty lists in recipeArray[2] and break up entries that are separated into two lists
-  // makes an api call on each ingredient
-  // recipe array = return value of generateRecipe()
-  // calories, protein, carbs, fat, sugar
+// makes an api call on each ingredient
+// recipe array = return value of generateRecipe()
+// calories, protein, carbs, fat, sugar
 
-  console.log(recipeArray[2]);
-  // var calories = 0
-  // var protein = 0
-  // var carbs = 0
-  // var fat = 0
-  // var sugar = 0
-  await Promise.all(
-    recipeArray[2].map((ing) =>
-      // for (var ing of recipeArray[2]){
+console.log(recipeArray[2])
+// var calories = 0
+// var protein = 0
+// var carbs = 0
+// var fat = 0
+// var sugar = 0
+await Promise.all(
 
-      $.ajax({
-        method: "GET",
-        url: "https://api.api-ninjas.com/v1/nutrition?query=" + ing,
-        headers: { "X-Api-Key": "3JFEuP7s7AC2Ev4Ag585fQ==VSTrujmaKumnqJ35" },
-        contentType: "application/json",
-        success: function (result) {},
-        error: function ajaxError(jqXHR) {
-          console.error("Error: ", jqXHR.responseText);
-        },
-      })
-    )
-  ).then((results) => {
-    var calories = 0;
-    var protein = 0;
-    var carbs = 0;
-    var fat = 0;
-    var sugar = 0;
-    for (var x of results) {
-      calories += x[0]["calories"];
-      protein += x[0]["protein_g"];
-      carbs += x[0]["carbohydrates_total_g"];
-      fat += x[0]["fat_total_g"];
-      sugar += x[0]["sugar_g"];
+  recipeArray[2].map(ing=>
+// for (var ing of recipeArray[2]){
+
+$.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/nutrition?query=' + ing,
+    headers: { 'X-Api-Key': '3JFEuP7s7AC2Ev4Ag585fQ==VSTrujmaKumnqJ35'},
+    contentType: 'application/json',
+    success: function(result) {
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
     }
-    // todo display functions here
-    var a = [
-      Math.round(calories / recipeArray[1]),
-      Math.round(protein / recipeArray[1]),
-      Math.round(carbs / recipeArray[1]),
-      Math.round(fat / recipeArray[1]),
-      Math.round(sugar / recipeArray[1]),
-    ];
-    var caloriesDisplay = a[0];
-    var proteinDisplay = a[1];
-    var carbsDisplay = a[2];
-    var fatDisplay = a[3];
-    var sugarDisplay = a[4];
-    var recipeNameDisplay = recipeArray[0];
-    var recipeServingsDisplay = recipeArray[1];
-    var recipeInstructionsDisplay = recipeArray[3];
-  });
+})
+)).then(results => {
+var calories = 0
+var protein = 0
+var carbs = 0
+var fat = 0
+var sugar = 0
+  for (var x of results){
+    calories += x[0]['calories']
+    protein += x[0]['protein_g']
+    carbs += x[0]['carbohydrates_total_g']
+    fat += x[0]['fat_total_g']
+    sugar += x[0]['sugar_g']
+  }
+  // todo display functions here
+  
+  var a = [Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])]
+  var caloriesDisplay = a[0]
+  var proteinDisplay = a[1]
+  var carbsDisplay = a[2]
+  var fatDisplay = a[3]
+  var sugarDisplay = a[4]
+  var recipeNameDisplay = recipeArray[0]
+  var recipeServingsDisplay = recipeArray[1]
+  var recipeInstructionsDisplay = recipeArray[3]
+  document.getElementById('calories').innerHTML = caloriesDisplay;
+  document.getElementById('fat').innerHTML = fatDisplay + " g";
+  document.getElementById('carbs').innerHTML = carbsDisplay + " g";
+  document.getElementById('sugar').innerHTML = sugarDisplay + " g";
+  document.getElementById('protein').innerHTML = proteinDisplay + " g";
+  document.getElementById('instructions').innerHTML = "Instructions: " + recipeInstructionsDisplay;
+  document.getElementById('name').innerHTML = recipeNameDisplay;
+  document.getElementById('serving').innerHTML = recipeServingsDisplay;
+})
 }
 
-nutritionInfo(generateRecipe());
