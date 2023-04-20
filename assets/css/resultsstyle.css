@@ -164,7 +164,22 @@ th {
   background-color: var(--sienna);
   color: var(--gray);
 }
+.clear-history-section {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
+#clear-history-btn {
+  background-color: var(--sienna);
+  color: var(--white);
+  border: 2px solid var(--gray);
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 769px) {
   #logo {
