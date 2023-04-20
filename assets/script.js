@@ -17,17 +17,7 @@ var homeBtn = $("#home-button");
 var errorMessage = $("#error-message");
 
 $("#search-btn").on("click", function () {
-  var query = $("#search-input").val().trim();
-
-  if (query) {
-    searchRecipes(query);
-    // localStorage.setItem('recipe', query);
-    // recipes.push(query);
-    // // displayRecipe();
-    // window.location.href = ("results.html");
-  } else {
-    displayError("this is a error message");
-  }
+  nutritionInfo(generateRecipe());
 });
 
 searchInput.on("keydown", function (event) {
