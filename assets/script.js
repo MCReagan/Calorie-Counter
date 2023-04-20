@@ -17,17 +17,7 @@ var homeBtn = $("#home-button");
 var errorMessage = $("#error-message");
 
 $("#search-btn").on("click", function () {
-  var query = $("#search-input").val().trim();
-
-  if (query) {
-    searchRecipes(query);
-    // localStorage.setItem('recipe', query);
-    // recipes.push(query);
-    // // displayRecipe();
-    // window.location.href = ("results.html");
-  } else {
-    displayError("this is a error message");
-  }
+  nutritionInfo(generateRecipe());
 });
 
 searchInput.on("keydown", function (event) {
@@ -50,7 +40,6 @@ homeBtn.on("click", function () {
 // };)
 // var recipes = [];
 // var query = "italian wedding soup";
-
 
 // function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
 // vara resultsDiv = $("#results"); ======= JQuery entity for the "results div"
@@ -88,8 +77,7 @@ function hideError() {
 // var query = $("#search-input").val().trim(); ======= stores the value for the search input field
 // fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
 
-
-function generateRecipe(){
+function generateRecipe() {
   // returns a random recipe's name, servings, ingredients and instructions
   const options = {
     method: "GET",
@@ -98,99 +86,118 @@ function generateRecipe(){
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
-    
-  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random', options)
-    .then(function(response){
-      return response.json()
+
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random",
+    options
+  )
+    .then(function (response) {
+      return response.json();
     })
 
-    .then(function(data){
-      console.log(data)
-      localStorage.setItem('randomRecipeIngredients', JSON.stringify(data['recipes'][0]['extendedIngredients']))
-      localStorage.setItem('recipeInstructions', JSON.stringify(data['recipes'][0]['analyzedInstructions'][0]['steps']))
-      localStorage.setItem('randomRecipeName', JSON.stringify(data['recipes'][0]['title']))
-      localStorage.setItem('randomRecipeServings', JSON.stringify(data['recipes'][0]['servings']))
-    })
-    var recipeName = JSON.parse(localStorage.getItem('randomRecipeName'))
-    var recipeServings = JSON.parse(localStorage.getItem('randomRecipeServings'))
-    var recipeIngredientsJSON = JSON.parse(localStorage.getItem('randomRecipeIngredients'))
-    var recipeInstructionsJSON = JSON.parse(localStorage.getItem('recipeInstructions'))
-    var recipeInstructions = []
-    var recipeIngredients = []
-    for(var ing of recipeIngredientsJSON){
-      // todo: change amount to a fraction
-      recipeIngredients.push((ing['amount'] + ' ' + ing['unit'] + ' ' + ing['name']))
-    }
+    .then(function (data) {
+      console.log(data);
+      localStorage.setItem(
+        "randomRecipeIngredients",
+        JSON.stringify(data["recipes"][0]["extendedIngredients"])
+      );
+      localStorage.setItem(
+        "recipeInstructions",
+        JSON.stringify(data["recipes"][0]["analyzedInstructions"][0]["steps"])
+      );
+      localStorage.setItem(
+        "randomRecipeName",
+        JSON.stringify(data["recipes"][0]["title"])
+      );
+      localStorage.setItem(
+        "randomRecipeServings",
+        JSON.stringify(data["recipes"][0]["servings"])
+      );
+    });
+  var recipeName = JSON.parse(localStorage.getItem("randomRecipeName"));
+  var recipeServings = JSON.parse(localStorage.getItem("randomRecipeServings"));
+  var recipeIngredientsJSON = JSON.parse(
+    localStorage.getItem("randomRecipeIngredients")
+  );
+  var recipeInstructionsJSON = JSON.parse(
+    localStorage.getItem("recipeInstructions")
+  );
+  var recipeInstructions = [];
+  var recipeIngredients = [];
+  for (var ing of recipeIngredientsJSON) {
+    // todo: change amount to a fraction
+    recipeIngredients.push(
+      ing["amount"] + " " + ing["unit"] + " " + ing["name"]
+    );
+  }
 
-    for (var ins of recipeInstructionsJSON){
-      recipeInstructions.push(ins['step'])
-    }
-    return [recipeName, recipeServings, convertList(recipeIngredients), recipeInstructions]
+  for (var ins of recipeInstructionsJSON) {
+    recipeInstructions.push(ins["step"]);
+  }
+  return [recipeName, recipeServings, recipeIngredients, recipeInstructions];
 }
-
 
 $("#home-button").on("click", function () {
   window.location.href = "index.html";
 });
 
-
-function nutritionInfo(recipeArray){
+async function nutritionInfo(recipeArray) {
   // todo: remove empty lists in recipeArray[2] and break up entries that are separated into two lists
-// makes an api call on each ingredient
-// recipe array = return value of generateRecipe()
-// calories, protein, carbs, fat, sugar
-console.log(recipeArray[2])
-for (var ing of recipeArray[2]){
+  // makes an api call on each ingredient
+  // recipe array = return value of generateRecipe()
+  // calories, protein, carbs, fat, sugar
 
-$.ajax({
-    method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/nutrition?query=' + ing,
-    headers: { 'X-Api-Key': '3TpEafSFnQPCwY3sTujznK9xeBtbG98f8IMZ7H44'},
-    contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
-        console.log(result[0]['calories'])
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
+  console.log(recipeArray[2]);
+  // var calories = 0
+  // var protein = 0
+  // var carbs = 0
+  // var fat = 0
+  // var sugar = 0
+  await Promise.all(
+    recipeArray[2].map((ing) =>
+      // for (var ing of recipeArray[2]){
+
+      $.ajax({
+        method: "GET",
+        url: "https://api.api-ninjas.com/v1/nutrition?query=" + ing,
+        headers: { "X-Api-Key": "3JFEuP7s7AC2Ev4Ag585fQ==VSTrujmaKumnqJ35" },
+        contentType: "application/json",
+        success: function (result) {},
+        error: function ajaxError(jqXHR) {
+          console.error("Error: ", jqXHR.responseText);
+        },
+      })
+    )
+  ).then((results) => {
+    var calories = 0;
+    var protein = 0;
+    var carbs = 0;
+    var fat = 0;
+    var sugar = 0;
+    for (var x of results) {
+      calories += x[0]["calories"];
+      protein += x[0]["protein_g"];
+      carbs += x[0]["carbohydrates_total_g"];
+      fat += x[0]["fat_total_g"];
+      sugar += x[0]["sugar_g"];
     }
-});
-}
-}
-
-console.log(nutritionInfo(generateRecipe()))
-
-
-function convertString(str){
-  // because the api ninjas nutrition api cannot read cups, this function roughly converts cups to grams
-  if (str.includes('cup')){
-    if (str.includes('cups')){
-      var result = str.split('cups')
-      var grams = String(Number(result[0]) * 120) + ' grams'
-      result.shift()
-      return grams + result
-    } else{
-      var result = str.split('cup')
-      var grams = String(Number(result[0]) * 120) + ' grams'
-      result.shift()
-      return grams + result
-  }
-}else{return str}
-
+    // todo display functions here
+    var a = [
+      Math.round(calories / recipeArray[1]),
+      Math.round(protein / recipeArray[1]),
+      Math.round(carbs / recipeArray[1]),
+      Math.round(fat / recipeArray[1]),
+      Math.round(sugar / recipeArray[1]),
+    ];
+    var caloriesDisplay = a[0];
+    var proteinDisplay = a[1];
+    var carbsDisplay = a[2];
+    var fatDisplay = a[3];
+    var sugarDisplay = a[4];
+    var recipeNameDisplay = recipeArray[0];
+    var recipeServingsDisplay = recipeArray[1];
+    var recipeInstructionsDisplay = recipeArray[3];
+  });
 }
 
-function convertList(lst){
-  // applies convertString to all ingredients
-  var newList = []
-  for (var item of lst){
-    newList.push(convertString(item))
-  }
-  return newList
-}
-
-document.getElementById("clear-history-btn").addEventListener("click", clearHistory);
-
-function clearHistory() {
-  localStorage.clear(); // Clear local storage
-  location.reload(); // Reload the page
-}
+nutritionInfo(generateRecipe());
