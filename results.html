@@ -2,113 +2,117 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Results</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
-    <link rel="stylesheet" href="./assets/css/normalize.css" />
-    <link rel="stylesheet" href="./assets/css/resultsstyle.css" />
-    
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Results</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+  <link rel="stylesheet" href="./assets/css/normalize.css"/>
+  <link rel="stylesheet" href="./assets/css/resultsstyle.css"/>
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <button class="button" id="home-button">
-                <span class="icon">
-                    <img
-                        src="./assets/images/png-transparent-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-building.png"></i>
-                </span>
-            </button>
-            <h1 class="title">Nutricipe</h1>
-            <a class="button" id="contact-button" href="https://github.com/MCReagan/Calorie-Counter">Contact</a>
-            <!-- navbar items, navbar burger... -->
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <!-- </button> -->
+      <figure id="logo" class="icon is-flex">
+        <img src="./assets/images/logo.png">
+      </figure>
+      <h1 class="title">Nutricipe</h1>
+      <a class="button" id="contact-button" href="https://github.com/MCReagan/Calorie-Counter">Contact</a>
+      <!-- navbar items, navbar burger... -->
+    </div>
+  </nav>
+  <main>
+    <!-- HEADER SECTION -->
+    <header class="is-flex row">
+      <div class="column">
+        <div class="searchField column is-flex is-justify-content-center">
+          <button id="search-btn" class="button">Generate New Recipe</button>
         </div>
-    </nav>
-    <main>
-        <!-- HEADER SECTION -->
-        <header class=" is-flex row">
-            <div class="searchBox column is-one-quarter">
-                <!-- can enter account info and image here later-->
-            </div>
-            <div class="column is-align-content-center">
-                <div class="searchPic column is-one-quarter is-flex is-justify-content-flex-end">
-                    <img src="./assets/images/search-icon.png">
-                </div>
-                <div class="searchField column is-three-quarters">
-                    <h2>Search Recipes</h2>
-                    <div class="field has-addons">
-                        <input class="input" type="text" placeholder="Enter Keywords to find your recipe...">
-                        <button id="search-btn" class="button">GO</button>
-                    </div>
-                </div>
-            </div>
-   
-
+      </div>
     </header>
-<!--recent/results cards-->
-        <section class=""> 
-            <div class="row">
-                <div class="column">
-                  <div class="card">
-                    <h3>Recents</h3>
-                                      <!--need console log for recents-->
-                   <table>
-                       <tr>
-                      <td>example</td>
-                      </tr>
-
-                    <tr>
-                      <td>example</td>
-                    </tr>
-
-                    <tr>
-                        <td>example</td>
-                    </tr>
-                     </table>
-
-                
-                  </div>
-                </div>
-                
-                <div class="column right">
-                  <div class="card" >        
-                <nav class="navbar">
-                    <h1 class="nav-brand">Nutrition table</h1>
-                  </nav>
-              
-                  <main class="container">
-                    <table class="table" id="nutrition-table">
-                      <thead>
-                        <tr>
-                          <th>Nutrition</th>
-                          <th>Value</th>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
-                  </main>
-              
-                  <script src="src/index.js"></script>
-              
-            
-                
-        </section>
-
-
-     </main>
+    <!--recent/results cards-->
+    <section class="section">
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <article class="table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="title is-3">Nutrition Facts</th>
+                  <th class="title is-3">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Calories:</th>
+                  <td> 2,000 </td>
+                </tr>
+                <tr>
+                  <th>Total Fat:</th>
+                  <td> 50g </td>
+                </tr>
+                <tr>
+                  <th>Total Carbohydrate:</th>
+                  <td>100g</td>
+                </tr>
+                <tr>
+                  <th>Total Sugars:</th>
+                  <td>100g</td>
+                </tr>
+                <tr>
+                  <th>Protein:</th>
+                  <td>500g</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+        <div class="column is-one-quarter">
+          <article class="table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="title is-4">Recipe Instructions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+        <div class="column is-one-quarter">
+          <article class="table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="title is-4">Recents</th>
+                </tr>
+              </thead> <!--need console log for recents-->
+              <tbody>
+                <tr>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+    </section>
+    <section class="clear-history-section">
+  <button id="clear-history-btn" class="button">Clear History</button>
+</section>
+  </main>
 </body>
-
-
-
-
 <!-- The javaScript file -->
 <script src="./assets/script.js"></script>
 

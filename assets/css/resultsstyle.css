@@ -1,7 +1,7 @@
 :root {
   --gray: #CDCBD6;
-  --sienna: #D96846;
-  --moss: #596235;
+  --sienna: #577399;
+  --moss: #f7f7ff;
   --olive: #2f3020;
   --white: #fff;
 }
@@ -18,7 +18,19 @@ main {
   background-color: var(--moss);
 }
 
+img {
+  border-radius: 45px;
+}
+
 /* NAVBAR SECTION */
+#logo {
+  width: 65px;
+  max-width: 80px;
+}
+img{
+  border-radius: 45px;
+}
+
 #contact-button {
   background-color: var(--olive);
   color: var(--white);
@@ -43,6 +55,7 @@ main {
   display: flex;
   align-items: center;
   padding: 0 5vw;
+ box-shadow:0 4px 8px 0 (black);
 }
 
 .title:not(:last-child) {
@@ -51,15 +64,22 @@ main {
 
 /* HEADER SECTION */
 #search-btn {
-  border-radius: 0;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 20px;
+  /* border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px; */
   background-color: var(--sienna);
   color: var(--white);
 }
+#search-btn:hover {
+background-color: rgb(134, 170, 211);
+cursor: pointer;
+}
+
 
 .searchField {
   width: 100%;
+  padding-top: 30px;
+  padding-bottom: 0;
 }
 
 .input {
@@ -75,25 +95,55 @@ h2 {
 
 header {
   color: var(--white);
-  padding: 10px;
+  padding: 35px 0;
 }
 
 header img {
   width: 10vw;
+  height: 10vw;
   max-width: 120px;
 }
 
 /* Create two equal columns that float next to each other */
-.column {
-  float: left;
-  padding: 10px;
-  height: 300px;
- }
+.table th, .table thead th {
+  color: white;
+}
 
+.table td {
+  font-weight: bold;
+}
+
+
+.searchPic,
+.searchField {
+  float: left;
+}
+.search-icon {
+  width: auto;
+  height: 40px;
+  max-height: 100%;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  /* Adjust this value to change the height of the button */
+  padding: 0 15px;
+  /* Adjust the padding to change the width of the button */
+}
+.logo-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
 /* Left column */
 .left {
   width: 40%;
 }
+
 /* right column */
 .right {
   width: 60%;
@@ -106,9 +156,59 @@ header img {
   clear: both;
 }
 
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
+/* MAIN SECTION */
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: var(--white);
+}
+
+tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+tr:hover {
+  background-color: var(--sienna);
+}
+.section {
+  padding:40px 0;
+}
+
+.table tbody tr:hover {
+  background-color: rgb(134, 170, 211);
+  cursor: pointer;
+}
+
+th {
+  background-color: var(--sienna);
+  color: var(--gray);
+}
+.clear-history-section {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#clear-history-btn {
+  background-color: var(--sienna);
+  color: var(--white);
+  border: 2px solid var(--gray);
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
 /* Responsive columns - one column layout (vertical) on small screens */
-/* 769px overwrites bulma css for screen resize */
 @media screen and (max-width: 769px) {
+  #logo {
+    max-width: 60px;
+  }
+
   .input {
     width: 100%;
   }
@@ -156,13 +256,18 @@ header img {
     font-size: 30px;
   }
 
-  table, th, td {
+  table,
+  th,
+  td {
     border: 1px solid;
   }
-  th, td {
+
+  th,
+  td {
     padding: 15px;
     text-align: center;
   }
+
 }
 
 /* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
@@ -181,8 +286,9 @@ tr:nth-child(even) {
 }
 
 
-tr:hover {
+td:hover {
   background-color: var(--sienna);
+  color: #fff;
 }
 
 
@@ -191,125 +297,38 @@ th {
   color: var(--gray);
 }
 
+
 /* Responsive columns - one column layout (vertical) on small screens */
-@media screen and (max-width: 769px) {
-  .input {
-    width: 100%;
-  }
-
-  .searchBox {
-    max-width: 0px;
-    padding: 0;
-  }
-
-  .searchField {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .searchPic {
-    max-width: 0px;
-    padding: 0px;
-  }
-
-  header img {
-    display: none;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  header {
-    padding: 0;
-  }
-
-  .navbar-brand {
-    min-height: 12.5vw;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card-column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  table, th, td {
-    border: 1px solid;
-  }
-  th, td {
-    padding: 15px;
-    text-align: center;
-  }
-
-/* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .searchField {
+    margin-bottom: 0px;
   }
 }
 
-/* MAIN SECTION */
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: var(--white);
-}
-
-tr:nth-child(even) {
-  background-color: var(--gray);
-}
-
-
-tr:hover {
-  background-color: var(--sienna);
-}
-
-
-th {
-  background-color: var(--sienna);
-  color: var(--gray);
-}
-
-
-  /* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-    h2 {
-      font-size: 20px;
-    }
-  
-    .searchField {
-      margin-bottom: 0px;
-    }
-  }
-  
 
 /* Recents table */
 
 body {
   font-family: sans-serif;
-  background-color: var(--gray);
+  background-color: var(--moss);
   margin: 0;
+  min-height: 100vw;
 }
 
 h1 {
   font-size: 36px;
   font-weight: normal;
-  
+
 }
 
 h2 {
@@ -327,11 +346,6 @@ p {
   font-size: 18px;
 }
 
-a {
-  color: var(--primary-2);
-  font-weight: bold;
-  text-decoration: none;
-}
 a:hover {
   text-decoration: underline;
 }
@@ -360,15 +374,7 @@ a:hover {
 }
 
 .form-section {
-  border-bottom: var(--neutral-4) solid 1px;
   margin-bottom: 20px;
-}
-
-.input-required {
-  color: var(--primary-2);
-  text-decoration: none;
-  font-weight: normal;
-  padding: 0 1px;
 }
 
 .label {
@@ -377,14 +383,8 @@ a:hover {
 }
 
 .input {
-  font-size: 16px;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
-  padding: 0.75em 0.5em;
   min-width: 200px;
   border: none;
-  border-left: 7px solid var(--neutral-4);
-  transition: border-left-color 160ms;
   background-color: white;
   width: 100%;
 }
@@ -395,11 +395,10 @@ a:hover {
 
 input:not(.btn):focus {
   outline: none;
-  border-left: 7px solid var(--primary-1);
 }
 
 /* NAVBAR */
-.navbar {
+.navbar1 {
   background-color: white;
   padding: 10px;
   box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
@@ -410,7 +409,7 @@ input:not(.btn):focus {
   margin-bottom: 20px;
 }
 
-.nav-brand {
+.nav-brand1 {
   font-weight: 450;
   text-decoration: none;
   padding-left: 20px;
@@ -425,8 +424,7 @@ input:not(.btn):focus {
 }
 
 .table thead {
-  background-color: var(--primary-1);
-  color:var(--gray);
+  color: var(--gray);
   border: 2px solid var(--olive);
 }
 
@@ -447,6 +445,17 @@ input:not(.btn):focus {
   background-color: white;
 }
 
-.table tbody tr:nth-child(2n + 1) {
-  background-color: var(--neutral-5);
-}
+  .table tbody tr:nth-child(2n + 1) {
+    
+  }
+    @media screen and (max-width: 768px) {
+      .logo-image {
+        max-width: 80%;
+      }
+    }
+  
+    @media screen and (max-width: 480px) {
+      .logo-image {
+        max-width: 60%;
+      }
+    }

@@ -182,4 +182,3 @@ var sugar = 0
 }
 
 nutritionInfo(generateRecipe())
-
