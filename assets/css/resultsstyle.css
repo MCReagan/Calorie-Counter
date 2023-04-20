@@ -27,6 +27,9 @@ img {
   width: 65px;
   max-width: 80px;
 }
+img{
+  border-radius: 45px;
+}
 
 #contact-button {
   background-color: var(--olive);
