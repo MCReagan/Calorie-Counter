@@ -125,7 +125,7 @@ function generateRecipe(){
     for (var ins of recipeInstructionsJSON){
       recipeInstructions.push(ins['step'])
     }
-    return [recipeName, recipeServings, convertList(recipeIngredients), recipeInstructions]
+    return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
 }
 
 
@@ -134,63 +134,51 @@ $("#home-button").on("click", function () {
 });
 
 
-function nutritionInfo(recipeArray){
+async function nutritionInfo(recipeArray){
   // todo: remove empty lists in recipeArray[2] and break up entries that are separated into two lists
 // makes an api call on each ingredient
 // recipe array = return value of generateRecipe()
 // calories, protein, carbs, fat, sugar
+
 console.log(recipeArray[2])
-for (var ing of recipeArray[2]){
+// var calories = 0
+// var protein = 0
+// var carbs = 0
+// var fat = 0
+// var sugar = 0
+await Promise.all(
+
+  recipeArray[2].map(ing=>
+// for (var ing of recipeArray[2]){
 
 $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/nutrition?query=' + ing,
-    headers: { 'X-Api-Key': '3TpEafSFnQPCwY3sTujznK9xeBtbG98f8IMZ7H44'},
+    headers: { 'X-Api-Key': '3JFEuP7s7AC2Ev4Ag585fQ==VSTrujmaKumnqJ35'},
     contentType: 'application/json',
     success: function(result) {
-        console.log(result);
-        console.log(result[0]['calories'])
+      console.log(result)
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
     }
-});
-}
-}
-
-console.log(nutritionInfo(generateRecipe()))
-
-
-function convertString(str){
-  // because the api ninjas nutrition api cannot read cups, this function roughly converts cups to grams
-  if (str.includes('cup')){
-    if (str.includes('cups')){
-      var result = str.split('cups')
-      var grams = String(Number(result[0]) * 120) + ' grams'
-      result.shift()
-      return grams + result
-    } else{
-      var result = str.split('cup')
-      var grams = String(Number(result[0]) * 120) + ' grams'
-      result.shift()
-      return grams + result
+})
+)).then(results => {
+var calories = 0
+var protein = 0
+var carbs = 0
+var fat = 0
+var sugar = 0
+  for (var x of results){
+    console.log(x[0]['calories'])
+    calories += x[0]['calories']
+    protein += x[0]['protein_g']
+    carbs += x[0]['carbohydrates_total_g']
+    fat += x[0]['fat_total_g']
+    sugar += x[0]['sugar_g']
   }
-}else{return str}
-
+  // todo display functions here
+  console.log([Math.round(calories), Math.round(protein), Math.round(carbs), Math.round(fat), Math.round(sugar)])})
 }
 
-function convertList(lst){
-  // applies convertString to all ingredients
-  var newList = []
-  for (var item of lst){
-    newList.push(convertString(item))
-  }
-  return newList
-}
-
-document.getElementById("clear-history-btn").addEventListener("click", clearHistory);
-
-function clearHistory() {
-  localStorage.clear(); // Clear local storage
-  location.reload(); // Reload the page
-}
+nutritionInfo(generateRecipe())
