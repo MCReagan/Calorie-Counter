@@ -157,7 +157,6 @@ $.ajax({
     headers: { 'X-Api-Key': '3JFEuP7s7AC2Ev4Ag585fQ==VSTrujmaKumnqJ35'},
     contentType: 'application/json',
     success: function(result) {
-      console.log(result)
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
@@ -170,7 +169,6 @@ var carbs = 0
 var fat = 0
 var sugar = 0
   for (var x of results){
-    console.log(x[0]['calories'])
     calories += x[0]['calories']
     protein += x[0]['protein_g']
     carbs += x[0]['carbohydrates_total_g']
@@ -178,7 +176,8 @@ var sugar = 0
     sugar += x[0]['sugar_g']
   }
   // todo display functions here
-  console.log([Math.round(calories), Math.round(protein), Math.round(carbs), Math.round(fat), Math.round(sugar)])})
+  console.log([Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])])})
+  var servings = recipeArray[1]
 }
 
 nutritionInfo(generateRecipe())
