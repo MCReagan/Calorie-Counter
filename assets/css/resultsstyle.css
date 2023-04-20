@@ -18,6 +18,10 @@ main {
   background-color: var(--moss);
 }
 
+img {
+  border-radius: 45px;
+}
+
 /* NAVBAR SECTION */
 #logo {
   width: 65px;
@@ -105,6 +109,10 @@ header img {
   color: white;
 }
 
+.table td {
+  font-weight: bold;
+}
+
 
 .searchPic,
 .searchField {
@@ -162,7 +170,6 @@ header img {
 tr:nth-child(even) {
   background-color: var(--gray);
 }
-
 
 tr:hover {
   background-color: var(--sienna);
@@ -264,8 +271,6 @@ th {
 }
 
 /* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
-
-
 /* MAIN SECTION */
 /* Style the counter cards */
 .card {
@@ -281,8 +286,9 @@ tr:nth-child(even) {
 }
 
 
-tr:hover {
+td:hover {
   background-color: var(--sienna);
+  color: #fff;
 }
 
 
