@@ -1,10 +1,15 @@
-// "$.ajax({" ======= JQuery preforming the http AJAX request
-// method: "GET" ======= http used for the request
-// url: "https://api.api-ninjas.com/v1/recipe?query=" + query,) ======= API endpoint for the URL for users query
-// headers: { "X-Api-Key": "DFSgX/7pfugOaW/IOAGavw==KeyRO8WYPbJ5bGoZ" } =======object containing the SET OF HEADERS to send the request
-// contentType: "application/json", ======= is the data that is sent to the server
-// success: function (result) ======= calling back for the successful response
-// error: function ajaxError(jqXHR) ======= call back for the error response that takes the (jqXHR) object as a argument and logs errors to the console.
+// In this code, we are using jQuery to handle events and interact with the DOM. 
+// The code initializes by waiting for the DOM to be ready and then retrieving the last search query from the local storage. 
+// If a stored query exists, it sets the search input value to the stored query.
+// The code then caches various DOM elements for later use and attaches event listeners to the search button, search input, and home button. 
+// When the search button is clicked, it calls the nutritionInfo function with the generated recipe. 
+// When the user presses the "Enter" key in the search input, it checks whether the input is empty or not. 
+// If the input is not empty, the searchRecipes function is called with the query, otherwise, an error message is displayed. 
+// Lastly, when the home button is clicked, the user is redirected to the index.html page.
+
+// ================== //
+// ================== //
+
 $(document).ready(function () {
   var storedQuery = localStorage.getItem("lastSearchQuery");
   if (storedQuery) {
@@ -35,24 +40,22 @@ homeBtn.on("click", function () {
   window.location.href = "index.html";
 });
 
-// $("#home-button").on("click", function () {
-//   window.location.href = "index.html";
-// };)
-// var recipes = [];
-// var query = "italian wedding soup";
+// ================== //
+// ================== //
 
+// The displayRecipe() function is responsible for displaying the recipes on the web page. 
+// It first clears the content of the results div and hides any previously displayed error messages. 
+// Then, it iterates through the recipe array and creates a new div for each recipe, along with an h3 element containing the recipe name. 
+// These elements are then appended to the results div.
+// The displayError() function is used to display an error message on the web page. 
+// It takes a message parameter and sets the error message text to the provided message, then makes the error message visible.
+// The hideError() function simply hides the error message from the web page. 
+// This is used when we want to clear any existing error messages before displaying new content or messages.
 
-// function displayRecipes(recipes) ======= function to display the fetched recipes for UI with that it takes the selected array as the arguments (forEach())
-// vara resultsDiv = $("#results"); ======= JQuery entity for the "results div"
-// resultsDiv.empty(); ======= clears the "results div"
-// recipes.forEach(function (recipe) ======= instructs the recipe array for each recipe
-// var recipeDiv = $("<div>").addClass(box); ======= creates the new div element for a box class
-// var recipeTitle = $("<h3>").addClass("is-size-4").text(recipe.name); ======= makes the h3 element for the "is-size-4" class and make the text to the recipe name
-// recipeDiv.append(recipeTitle); ======= appends the title for the recipeDiv
-// resultsDiv.append(recipeDiv); ======= appends the recipeDiv  for the results div in the UI
+// ================== //
+// ================== //
 
 function displayRecipe() {
-  // var recipe = localStorage.getItem("recipe");
   var resultsDiv = $("#results");
   resultsDiv.empty();
   hideError();
@@ -74,12 +77,19 @@ function hideError() {
   errorMessage.hide();
 }
 
-// $("#search-btn").on("click", function () ======= the event Listener for the search button.
-// var query = $("#search-input").val().trim(); ======= stores the value for the search input field
-// fetchRecipes(query); ======= calls the "(fetchRecipes())" function via query as a argument
+// ================== //
+// ================== //
+
+// The generateRecipe() function fetches a random recipe from the Spoonacular API and stores the ingredients, instructions, recipe name, and servings in localStorage. 
+// It then retrieves this data from localStorage and processes it into arrays of ingredients and instructions. 
+// Finally, the function returns an array containing the recipe name, servings, ingredients, and instructions.
+// The click event handler for the home button is used to navigate back to the home page (index.html) when the button is clicked.
+
+// ================== //
+// ================== //
 
 
-function generateRecipe(){
+function generateRecipe() {
   // returns a random recipe's name, servings, ingredients and instructions
   const options = {
     method: "GET",
@@ -88,29 +98,50 @@ function generateRecipe(){
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
-    
-  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random', options)
-    .then(function(response){
-      return response.json()
+
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random",
+    options
+  )
+    .then(function (response) {
+      return response.json();
     })
 
-    .then(function(data){
-      console.log(data)
-      localStorage.setItem('randomRecipeIngredients', JSON.stringify(data['recipes'][0]['extendedIngredients']))
-      localStorage.setItem('recipeInstructions', JSON.stringify(data['recipes'][0]['analyzedInstructions'][0]['steps']))
-      localStorage.setItem('randomRecipeName', JSON.stringify(data['recipes'][0]['title']))
-      localStorage.setItem('randomRecipeServings', JSON.stringify(data['recipes'][0]['servings']))
-    })
-    var recipeName = JSON.parse(localStorage.getItem('randomRecipeName'))
-    var recipeServings = JSON.parse(localStorage.getItem('randomRecipeServings'))
-    var recipeIngredientsJSON = JSON.parse(localStorage.getItem('randomRecipeIngredients'))
-    var recipeInstructionsJSON = JSON.parse(localStorage.getItem('recipeInstructions'))
-    var recipeInstructions = []
-    var recipeIngredients = []
-    for(var ing of recipeIngredientsJSON){
-      // todo: change amount to a fraction
-      recipeIngredients.push((ing['amount'] + ' ' + ing['unit'] + ' ' + ing['name']))
-    }
+    .then(function (data) {
+      console.log(data);
+      localStorage.setItem(
+        "randomRecipeIngredients",
+        JSON.stringify(data["recipes"][0]["extendedIngredients"])
+      );
+      localStorage.setItem(
+        "recipeInstructions",
+        JSON.stringify(data["recipes"][0]["analyzedInstructions"][0]["steps"])
+      );
+      localStorage.setItem(
+        "randomRecipeName",
+        JSON.stringify(data["recipes"][0]["title"])
+      );
+      localStorage.setItem(
+        "randomRecipeServings",
+        JSON.stringify(data["recipes"][0]["servings"])
+      );
+    });
+  var recipeName = JSON.parse(localStorage.getItem("randomRecipeName"));
+  var recipeServings = JSON.parse(localStorage.getItem("randomRecipeServings"));
+  var recipeIngredientsJSON = JSON.parse(
+    localStorage.getItem("randomRecipeIngredients")
+  );
+  var recipeInstructionsJSON = JSON.parse(
+    localStorage.getItem("recipeInstructions")
+  );
+  var recipeInstructions = [];
+  var recipeIngredients = [];
+  for (var ing of recipeIngredientsJSON) {
+    // todo: change amount to a fraction
+    recipeIngredients.push(
+      ing["amount"] + " " + ing["unit"] + " " + ing["name"]
+    );
+  }
 
     for (var ins of recipeInstructionsJSON){
       recipeInstructions.push(ins['step'])
@@ -118,12 +149,18 @@ function generateRecipe(){
     return [recipeName, recipeServings, recipeIngredients, recipeInstructions]
 }
 
-
 $("#home-button").on("click", function () {
   window.location.href = "index.html";
 });
 
+// ================== //
+// ================== //
 
+//The nutritionInfo() function calculates the nutritional values (calories, protein, carbs, fat, and sugar) for a recipe by making API calls for each ingredient. 
+// It then calculates the nutritional values per serving and updates the HTML elements with the recipe information and nutritional values.
+
+// ================== //
+// ================== //
 
 async function nutritionInfo(recipeArray){
   // todo: remove empty lists in recipeArray[2] and break up entries that are separated into two lists
