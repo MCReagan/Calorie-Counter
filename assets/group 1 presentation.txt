@@ -1,0 +1,16 @@
+Person 1: Have you ever been hungry, but not really sure of what to eat? All of us have spent time, hopelessly looking through the pantry, searching for inspiration to create our next meal. As we browse our catalog of unused ingredients, we become overwhelmed by the endless possibilities. Nutricipe makes recipe decisions easy as pie. 
+
+Person 2: From the tips of your fingers, you are able to shuffle through inspiring eats until you have found the perfect bite. Nutricipe generates a randomized meal, complete with nutritional information, as well as a list of ingredients. Food contents are broken down into categories such as: total fats, carbohydrates, sugar content, and more. Nutricipe gives you the peace of mind that you will always have a meal idea within reach.
+
+--- Present website ---
+
+Person 3: To use Nutricipe, visit our website and click the button to get started. With the stroke of your finger, you are able to see your next meal idea populate right before your eyes. If (random meal) isn't your thing, that's okay, just hit that generate button until you have your perfect meal. In case you would like to go back, recent recipes are saved and easily accessible. To clear saved history, simply click the clear history button. Nutricipe is an easy to use, quick reference, meal planner.
+
+--- end presentation ---
+
+Person 4: Get started with Nutricipe today! You will instantly become an expert at meal suggestions. Can't decide what to eat? ... At a friends house and nothing sounds good? ... Or just cooking at home and want to try something new? ... Nutricipe gives you the confidence of a master chef with nothing more than the phone in your pocket. Download now, and you will NEVER have to worry about your next meal choice.
+
+Person 5: Nutricipe is a web-based application that is open source and crowd-funded. We designed it this way to be flexible and to ensure the end user gets the best experience possible. Working remotely, our team of experienced developers works around the clock to add new recipes daily, so you are never without a fresh idea. If you would like to contribute, please visit the Nutricipe repository and give it a clone!
+
+
+
