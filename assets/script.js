@@ -170,6 +170,9 @@ var sugar = 0
   
   var a = [Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])]
   var caloriesDisplay = a[0]
+  if (caloriesDisplay > 5000){
+    nutritionInfo(generateRecipe())
+  }
   var proteinDisplay = a[1]
   var carbsDisplay = a[2]
   var fatDisplay = a[3]
@@ -189,3 +192,5 @@ var sugar = 0
   document.getElementById('ingredients').innerHTML = recipeIngredientsDisplay;
 })
 }
+
+$('#search-btn').on('click', function(){nutritionInfo(generateRecipe())})
