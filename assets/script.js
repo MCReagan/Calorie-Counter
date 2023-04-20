@@ -187,3 +187,10 @@ function convertList(lst){
   }
   return newList
 }
+
+document.getElementById("clear-history-btn").addEventListener("click", clearHistory);
+
+function clearHistory() {
+  localStorage.clear(); // Clear local storage
+  location.reload(); // Reload the page
+}
