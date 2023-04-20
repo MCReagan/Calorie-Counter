@@ -176,8 +176,16 @@ var sugar = 0
     sugar += x[0]['sugar_g']
   }
   // todo display functions here
-  console.log([Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])])})
-  var servings = recipeArray[1]
+  var a = [Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])]
+  var caloriesDisplay = a[0]
+  var proteinDisplay = a[1]
+  var carbsDisplay = a[2]
+  var fatDisplay = a[3]
+  var sugarDisplay = a[4]
+  var recipeNameDisplay = recipeArray[0]
+  var recipeServingsDisplay = recipeArray[1]
+  var recipeInstructionsDisplay = recipeArray[3]
+})
 }
 
 nutritionInfo(generateRecipe())
