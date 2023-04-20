@@ -10,10 +10,6 @@
   font-family: 'Oxygen', sans-serif;
 }
 
-html {
-  overflow-y: hidden;
-}
-
 main {
   background-color: var(--moss);
 }
@@ -32,11 +28,12 @@ img{
 }
 
 #contact-button {
-  background-color: var(--olive);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--sienna);
   width: 100px;
   border: 2px solid var(--gray);
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .title {
@@ -171,16 +168,8 @@ tr:nth-child(even) {
   background-color: var(--gray);
 }
 
-tr:hover {
-  background-color: var(--sienna);
-}
 .section {
   padding:40px 0;
-}
-
-.table tbody tr:hover {
-  background-color: rgb(134, 170, 211);
-  cursor: pointer;
 }
 
 th {
@@ -195,14 +184,6 @@ th {
   justify-content: center;
 }
 
-#clear-history-btn {
-  background-color: var(--sienna);
-  color: var(--white);
-  border: 2px solid var(--gray);
-  font-size: 1rem;
-  padding: 8px 16px;
-  border-radius: 10px;
-}
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 769px) {
   #logo {
