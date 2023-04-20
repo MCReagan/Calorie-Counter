@@ -43,7 +43,7 @@ homeBtn.on("click", function () {
 // ================== //
 // ================== //
 
-// The displayRecipe() function is responsible for diisplaying the recipes on the web page. 
+// The displayRecipe() function is responsible for displaying the recipes on the web page. 
 // It first clears the content of the results div and hides any previously displayed error messages. 
 // Then, it iterates through the recipe array and creates a new div for each recipe, along with an h3 element containing the recipe name. 
 // These elements are then appended to the results div.
