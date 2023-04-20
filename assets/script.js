@@ -177,6 +177,7 @@ var sugar = 0
   var recipeNameDisplay = recipeArray[0]
   var recipeServingsDisplay = recipeArray[1]
   var recipeInstructionsDisplay = recipeArray[3]
+  var recipeIngredientsDisplay = recipeArray[2].toString();
   document.getElementById('calories').innerHTML = caloriesDisplay;
   document.getElementById('fat').innerHTML = fatDisplay + " g";
   document.getElementById('carbs').innerHTML = carbsDisplay + " g";
@@ -185,6 +186,7 @@ var sugar = 0
   document.getElementById('instructions').innerHTML = "Instructions: " + recipeInstructionsDisplay;
   document.getElementById('name').innerHTML = recipeNameDisplay;
   document.getElementById('serving').innerHTML = recipeServingsDisplay;
+  document.getElementById('ingredients').innerHTML = recipeIngredientsDisplay;
 })
 }
 
