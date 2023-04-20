@@ -124,6 +124,7 @@ $("#home-button").on("click", function () {
 });
 
 
+
 async function nutritionInfo(recipeArray){
   // todo: remove empty lists in recipeArray[2] and break up entries that are separated into two lists
 // makes an api call on each ingredient
@@ -166,6 +167,7 @@ var sugar = 0
     sugar += x[0]['sugar_g']
   }
   // todo display functions here
+  
   var a = [Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])]
   var caloriesDisplay = a[0]
   var proteinDisplay = a[1]
@@ -175,7 +177,14 @@ var sugar = 0
   var recipeNameDisplay = recipeArray[0]
   var recipeServingsDisplay = recipeArray[1]
   var recipeInstructionsDisplay = recipeArray[3]
+  document.getElementById('calories').innerHTML = caloriesDisplay;
+  document.getElementById('fat').innerHTML = fatDisplay + " g";
+  document.getElementById('carbs').innerHTML = carbsDisplay + " g";
+  document.getElementById('sugar').innerHTML = sugarDisplay + " g";
+  document.getElementById('protein').innerHTML = proteinDisplay + " g";
+  document.getElementById('instructions').innerHTML = "Instructions: " + recipeInstructionsDisplay;
+  document.getElementById('name').innerHTML = recipeNameDisplay;
+  document.getElementById('serving').innerHTML = recipeServingsDisplay;
 })
 }
 
-nutritionInfo(generateRecipe())
