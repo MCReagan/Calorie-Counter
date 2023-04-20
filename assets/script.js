@@ -177,6 +177,7 @@ var sugar = 0
   }
   // todo display functions here
   var a = [Math.round(calories/recipeArray[1]), Math.round(protein/recipeArray[1]), Math.round(carbs/recipeArray[1]), Math.round(fat/recipeArray[1]), Math.round(sugar/recipeArray[1])]
+  console.log(a)
   var caloriesDisplay = a[0]
   var proteinDisplay = a[1]
   var carbsDisplay = a[2]
