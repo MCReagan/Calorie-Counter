@@ -1,4 +1,4 @@
-# 🍽️ Calorie-Counter 🥗
+# 🍽️ Nutricipe Recipe Generator 🥗
 
 ---
 
