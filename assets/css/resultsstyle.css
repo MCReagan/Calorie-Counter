@@ -23,7 +23,8 @@ img {
   width: 65px;
   max-width: 80px;
 }
-img{
+
+img {
   border-radius: 45px;
 }
 
@@ -52,24 +53,43 @@ img{
   display: flex;
   align-items: center;
   padding: 0 5vw;
- box-shadow:0 4px 8px 0 (black);
+  box-shadow: 0 4px 8px 0 (black);
 }
 
 .title:not(:last-child) {
   margin-bottom: 0;
 }
 
+.navbar1 {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand1 {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
 /* HEADER SECTION */
 #search-btn {
   border-radius: 20px;
-  /* border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px; */
   background-color: var(--sienna);
   color: var(--white);
 }
+
 #search-btn:hover {
-background-color: rgb(134, 170, 211);
-cursor: pointer;
+  background-color: rgb(134, 170, 211);
+  cursor: pointer;
 }
 
 
@@ -102,23 +122,13 @@ header img {
 }
 
 /* Create two equal columns that float next to each other */
-.table th, .table thead th {
+.table th,
+.table thead th {
   color: white;
 }
 
 .table td {
   font-weight: bold;
-}
-
-
-.searchPic,
-.searchField {
-  float: left;
-}
-.search-icon {
-  width: auto;
-  height: 40px;
-  max-height: 100%;
 }
 
 .button {
@@ -130,20 +140,12 @@ header img {
   padding: 0 15px;
   /* Adjust the padding to change the width of the button */
 }
+
 .logo-image {
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 100%;
-}
-/* Left column */
-.left {
-  width: 40%;
-}
-
-/* right column */
-.right {
-  width: 60%;
 }
 
 /* Clear floats after the columns */
@@ -153,12 +155,135 @@ header img {
   clear: both;
 }
 
+/* Recents table */
+
+body {
+  font-family: sans-serif;
+  background-color: var(--moss);
+  margin: 0;
+  min-height: 100vw;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: normal;
+
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Nutrition Table Styling section*/
+
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  min-width: 200px;
+  border: none;
+  background-color: white;
+  width: 100%;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+input:not(.btn):focus {
+  outline: none;
+}
+
+/* Content Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  color: var(--gray);
+  border: 2px solid var(--olive);
+}
+
+.table th {
+  padding: 15px;
+}
+
+.table td {
+  padding: 10px;
+}
+
+.table tbody {
+  font-size: 18px;
+  border: 1px solid var(--gray);
+}
+
+.table tbody tr:nth-child(2n) {
+  background-color: white;
+}
+
+.table tbody tr:nth-child(2n + 1) {}
+
+@media screen and (max-width: 768px) {
+  .logo-image {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo-image {
+    max-width: 60%;
+  }
+}
+
 /* Responsive layout - makes the columns stack on top of each other instead of next to each other on smaller screens */
 /* MAIN SECTION */
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  /* this adds the "card" effect */
+  /* Adds the "card" effect */
   padding: 16px;
   text-align: center;
   background-color: var(--white);
@@ -169,13 +294,14 @@ tr:nth-child(even) {
 }
 
 .section {
-  padding:40px 0;
+  padding: 40px 0;
 }
 
 th {
   background-color: var(--sienna);
   color: var(--gray);
 }
+
 .clear-history-section {
   position: fixed;
   bottom: 20px;
@@ -256,7 +382,7 @@ th {
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  /* this adds the "card" effect */
+  /* Adds the "card" effect */
   padding: 16px;
   text-align: center;
   background-color: var(--white);
@@ -295,148 +421,3 @@ th {
     margin-bottom: 0px;
   }
 }
-
-
-/* Recents table */
-
-body {
-  font-family: sans-serif;
-  background-color: var(--moss);
-  margin: 0;
-  min-height: 100vw;
-}
-
-h1 {
-  font-size: 36px;
-  font-weight: normal;
-
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: normal;
-}
-
-h3 {
-  font-size: 24px;
-  font-weight: normal;
-}
-
-p {
-  line-height: 30px;
-  font-size: 18px;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.rounded {
-  border-radius: 30px;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Nutrition Table */
-
-.form h2 {
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.form h3 {
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 15px;
-}
-
-.form-section {
-  margin-bottom: 20px;
-}
-
-.label {
-  display: block;
-  font-weight: 500;
-}
-
-.input {
-  min-width: 200px;
-  border: none;
-  background-color: white;
-  width: 100%;
-}
-
-::placeholder {
-  color: var(--neutral-3);
-}
-
-input:not(.btn):focus {
-  outline: none;
-}
-
-/* NAVBAR */
-.navbar1 {
-  background-color: white;
-  padding: 10px;
-  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
-    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.nav-brand1 {
-  font-weight: 450;
-  text-decoration: none;
-  padding-left: 20px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  color: initial;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table thead {
-  color: var(--gray);
-  border: 2px solid var(--olive);
-}
-
-.table th {
-  padding: 15px;
-}
-
-.table td {
-  padding: 10px;
-}
-
-.table tbody {
-  font-size: 18px;
-  border: 1px solid var(--gray);
-}
-
-.table tbody tr:nth-child(2n) {
-  background-color: white;
-}
-
-  .table tbody tr:nth-child(2n + 1) {
-    
-  }
-    @media screen and (max-width: 768px) {
-      .logo-image {
-        max-width: 80%;
-      }
-    }
-  
-    @media screen and (max-width: 480px) {
-      .logo-image {
-        max-width: 60%;
-      }
-    }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Meta tags for UTF-8 encoding, compatibility with IE browsers and responsiveness -->
   <meta charset="UTF-8" />
@@ -29,11 +30,10 @@
       <figure id="logo" class="icon is-flex">
         <img src="./assets/images/logo.png">
       </figure>
-      <!-- Site title -->
+      <!-- TITLE -->
       <h1 class="title">Nutricipe</h1>
       <!-- Contact button -->
       <a class="button" id="contact-button" href="https://github.com/MCReagan/Calorie-Counter">Contact</a>
-      <!-- navbar items, navbar burger... -->
     </div>
   </nav>
   <main>
@@ -41,20 +41,20 @@
     <header class="is-flex row">
       <div class="column">
         <div class="searchField column is-flex is-justify-content-center">
-          <!-- Button for generating a new recipe -->
+          <!-- Button to generate a new recipe -->
           <button id="search-btn" class="button">Generate New Recipe</button>
         </div>
       </div>
     </header>
-    <!--recent/results cards-->
+   <!-- TABLE CONTENT -->
     <section class="section">
       <div class="columns is-vcentered">
         <div class="column is-half">
           <article class="table">
             <table class="table">
+             <!-- Nutrition facts table --> 
               <thead>
                 <tr>
-                  <!-- Nutrition facts table -->
                   <th class="title is-3">Nutrition Facts</th>
                   <th class="title is-3">Value</th>
                 </tr>
@@ -64,10 +64,6 @@
                 <tr>
                   <th>Total servings</th>
                   <td id="serving"> </td>
-                </tr>
-                <tr>
-                  <th>Total Calories:</th>
-                  <td id="totalCalories"> </td>
                 </tr>
                 <tr>
                   <th>Calories per serving:</th>
@@ -89,7 +85,6 @@
                   <th>Protein:</th>
                   <td id="protein"> </td>
                 </tr>
-
               </tbody>
             </table>
           </article>
@@ -103,6 +98,7 @@
                   <th id="name" class="title is-4">Recipe Instructions</th>
                 </tr>
               </thead>
+              <!-- Displaying Instructions to make Recipe -->
               <tbody>
                 <td id="instructions"></td>
                 <tr>
@@ -119,7 +115,8 @@
                 <tr>
                   <th class="title is-4">Ingredients</th>
                 </tr>
-              </thead> <!--need console log for recent-->
+              </thead>
+              <!-- Displaying Recipe's Ingredients -->
               <tbody>
                 <tr>
                   <td id="ingredients"></td>
@@ -129,10 +126,9 @@
           </article>
         </div>
     </section>
-
   </main>
 </body>
-<!-- The javaScript file -->
+<!-- JavaScript file -->
 <script src="./assets/script.js"></script>
 
 </html>
