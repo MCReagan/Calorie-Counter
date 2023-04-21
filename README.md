@@ -70,6 +70,14 @@ A special thanks to our dedicated team of contributors: 🌟
 
 ---
 
+## Links
+
+Deployed app: https://mcreagan.github.io/Calorie-Counter/
+
+Application Repository: https://github.com/MCReagan/Calorie-Counter
+
+---
+
 ## License
 
 This project is licensed under the MIT License.
